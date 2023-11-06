@@ -5,3 +5,4 @@ service:
   projectIdentifier: rishabh
   tags:
     test: ""
+    hello: "12"
