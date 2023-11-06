@@ -3,3 +3,5 @@ service:
   identifier: testQA
   orgIdentifier: default
   projectIdentifier: rishabh
+  tags:
+    test: ""
