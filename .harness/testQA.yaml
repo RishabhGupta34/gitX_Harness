@@ -4,5 +4,5 @@ service:
   orgIdentifier: default
   projectIdentifier: rishabh
   tags:
-    test: ""
+    test: "1234"
     hello: "12"
