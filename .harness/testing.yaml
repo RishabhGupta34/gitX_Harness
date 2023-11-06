@@ -1,0 +1,5 @@
+service:
+  name: testing
+  identifier: testing
+  orgIdentifier: default
+  projectIdentifier: dummyPipelines
