@@ -6,3 +6,4 @@ service:
   tags:
     test: "1234"
     hello: "12"
+    a: ""
