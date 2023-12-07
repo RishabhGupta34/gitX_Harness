@@ -1,0 +1,14 @@
+infrastructureDefinition:
+  name: infrag
+  identifier: infrag
+  orgIdentifier: default
+  projectIdentifier: rishabh
+  environmentRef: env
+  deploymentType: CustomDeployment
+  type: CustomDeployment
+  spec:
+    customDeploymentRef:
+      templateRef: account.dt_rishabh2
+      versionLabel: v1
+    variables: []
+  allowSimultaneousDeployments: false
