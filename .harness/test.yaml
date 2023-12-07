@@ -6,3 +6,17 @@ service:
   description: testing
   tags:
     test: ""
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: t
+            type: TasManifest
+            spec:
+              store:
+                type: CustomRemote
+                spec:
+                  filePath: t
+                  extractionScript: hello
+              cfCliVersion: V7
+    type: TAS
