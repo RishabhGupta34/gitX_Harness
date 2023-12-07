@@ -1,0 +1,8 @@
+service:
+  name: testQA
+  identifier: testQA
+  orgIdentifier: default
+  projectIdentifier: rishabh
+  description: testing
+  tags:
+    test: ""
