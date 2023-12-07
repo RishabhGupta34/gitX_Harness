@@ -1,0 +1,19 @@
+infrastructureDefinition:
+  name: infraGit
+  identifier: infraGit
+  orgIdentifier: default
+  projectIdentifier: rishabh
+  environmentRef: env
+  deploymentType: CustomDeployment
+  type: CustomDeployment
+  spec:
+    customDeploymentRef:
+      templateRef: account.dt_rishabh
+      versionLabel: v1
+    variables:
+      - name: test
+        type: String
+        description: ""
+        required: false
+        value: <+input>
+  allowSimultaneousDeployments: false
