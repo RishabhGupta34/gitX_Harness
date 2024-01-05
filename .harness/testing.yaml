@@ -3,3 +3,5 @@ service:
   identifier: testing
   orgIdentifier: default
   projectIdentifier: dummyPipelines
+  tags:
+    assa: ""
