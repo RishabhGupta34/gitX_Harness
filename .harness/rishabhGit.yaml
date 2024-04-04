@@ -1,0 +1,30 @@
+pipeline:
+  name: rishabhGit
+  identifier: rishabhGit
+  projectIdentifier: rishabhviewtest
+  orgIdentifier: Pipelines_UI_Organisation
+  tags: {}
+  stages:
+    - stage:
+        name: git
+        identifier: git
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: e
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
