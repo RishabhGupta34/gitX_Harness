@@ -1,0 +1,7 @@
+environment:
+  name: git
+  identifier: git
+  accountId: kmpySmUISimoRrJL6NL73w
+  orgIdentifier: default
+  projectIdentifier: Custom_Deployment
+  type: Production
