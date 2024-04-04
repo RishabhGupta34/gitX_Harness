@@ -1,0 +1,5 @@
+service:
+  name: tes
+  identifier: tes
+  orgIdentifier: default
+  projectIdentifier: Custom_Deployment
