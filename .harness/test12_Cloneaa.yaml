@@ -1,0 +1,31 @@
+---
+pipeline:
+  projectIdentifier: "rishabh"
+  orgIdentifier: "default"
+  tags: {}
+  stages:
+  - stage:
+      name: "tezt"
+      identifier: "tezt"
+      description: ""
+      type: "Custom"
+      spec:
+        execution:
+          steps:
+          - step:
+              type: "ShellScript"
+              name: "ShellScript_1"
+              identifier: "ShellScript_1"
+              spec:
+                shell: "Bash"
+                executionTarget: {}
+                source:
+                  type: "Inline"
+                  spec:
+                    script: "e"
+                environmentVariables: []
+                outputVariables: []
+              timeout: "10m"
+      tags: {}
+  identifier: "test12_Cloneaa"
+  name: "test12 - Cloneaa"
