@@ -1,0 +1,30 @@
+pipeline:
+  name: test1234
+  identifier: test1234
+  projectIdentifier: testview
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: rt
+        identifier: rt
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: as
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
