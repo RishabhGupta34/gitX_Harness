@@ -29,7 +29,7 @@ pipeline:
                   timeout: 10m
         tags: {}
     - stage:
-        name: ttt
+        name: tttt
         identifier: ttt
         description: ""
         type: Custom
