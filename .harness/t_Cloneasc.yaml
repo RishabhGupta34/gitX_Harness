@@ -1,0 +1,31 @@
+---
+pipeline:
+  projectIdentifier: "testview"
+  orgIdentifier: "default"
+  tags: {}
+  stages:
+  - stage:
+      name: "t"
+      identifier: "t"
+      description: ""
+      type: "Custom"
+      spec:
+        execution:
+          steps:
+          - step:
+              type: "ShellScript"
+              name: "ShellScript_1"
+              identifier: "ShellScript_1"
+              spec:
+                shell: "Bash"
+                executionTarget: {}
+                source:
+                  type: "Inline"
+                  spec:
+                    script: "e"
+                environmentVariables: []
+                outputVariables: []
+              timeout: "10m"
+      tags: {}
+  identifier: "t_Clonesac"
+  name: "t - Clonesac"
