@@ -1,0 +1,54 @@
+---
+pipeline:
+  projectIdentifier: "DoNotDelete_Mayank"
+  orgIdentifier: "Ng_Pipelines_K8s_Organisations"
+  tags: {}
+  stages:
+  - stage:
+      name: "te"
+      identifier: "te"
+      description: ""
+      type: "Custom"
+      spec:
+        execution:
+          steps:
+          - step:
+              type: "ShellScript"
+              name: "ShellScript_1"
+              identifier: "ShellScript_1"
+              spec:
+                shell: "Bash"
+                executionTarget: {}
+                source:
+                  type: "Inline"
+                  spec:
+                    script: "echo 1"
+                environmentVariables: []
+                outputVariables: []
+              timeout: "10m"
+      tags: {}
+  - stage:
+      name: "asa"
+      identifier: "as"
+      description: ""
+      type: "Custom"
+      spec:
+        execution:
+          steps:
+          - step:
+              type: "ShellScript"
+              name: "ShellScript_1"
+              identifier: "ShellScript_1"
+              spec:
+                shell: "Bash"
+                executionTarget: {}
+                source:
+                  type: "Inline"
+                  spec:
+                    script: "a"
+                environmentVariables: []
+                outputVariables: []
+              timeout: "10m"
+      tags: {}
+  identifier: "rishabh7"
+  name: "rishabh7"
