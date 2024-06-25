@@ -1,0 +1,31 @@
+---
+pipeline:
+  projectIdentifier: "testview"
+  orgIdentifier: "default"
+  tags: {}
+  stages:
+  - stage:
+      name: "rttesac"
+      identifier: "rt"
+      description: ""
+      type: "Custom"
+      spec:
+        execution:
+          steps:
+          - step:
+              type: "ShellScript"
+              name: "ShellScript_1"
+              identifier: "ShellScript_1"
+              spec:
+                shell: "Bash"
+                executionTarget: {}
+                source:
+                  type: "Inline"
+                  spec:
+                    script: "as"
+                environmentVariables: []
+                outputVariables: []
+              timeout: "10m"
+      tags: {}
+  identifier: "test1234_Cloneasas"
+  name: "test1234 - Cloneasas"

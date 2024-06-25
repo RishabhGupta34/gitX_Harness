@@ -1,0 +1,57 @@
+---
+pipeline:
+  projectIdentifier: "testview"
+  orgIdentifier: "default"
+  tags: {}
+  stages:
+  - stage:
+      name: "te"
+      identifier: "te"
+      description: ""
+      type: "Custom"
+      spec:
+        execution:
+          steps:
+          - step:
+              type: "HarnessApproval"
+              name: "HarnessApproval_1"
+              identifier: "HarnessApproval_1"
+              spec:
+                approvalMessage: "<+pipeline.resumedExecutionId>"
+                includePipelineExecutionHistory: true
+                isAutoRejectEnabled: false
+                approvers:
+                  userGroups:
+                  - "account._account_all_users"
+                  minimumCount: 1
+                  disallowPipelineExecutor: false
+                approverInputs: []
+              timeout: "1d"
+      tags: {}
+  - stage:
+      name: "t"
+      identifier: "t"
+      description: ""
+      type: "Custom"
+      spec:
+        execution:
+          steps:
+          - step:
+              type: "HarnessApproval"
+              name: "HarnessApproval_1"
+              identifier: "HarnessApproval_1"
+              spec:
+                approvalMessage: "Please review the following information and approve\
+                  \ the pipeline progression"
+                includePipelineExecutionHistory: true
+                isAutoRejectEnabled: false
+                approvers:
+                  userGroups:
+                  - "account._account_all_users"
+                  minimumCount: 1
+                  disallowPipelineExecutor: false
+                approverInputs: []
+              timeout: "1d"
+      tags: {}
+  identifier: "phitest_Clone"
+  name: "phitest - Clone"
