@@ -1,0 +1,75 @@
+---
+pipeline:
+  projectIdentifier: "DoNotDelete_Mayank"
+  orgIdentifier: "Ng_Pipelines_K8s_Organisations"
+  tags: {}
+  stages:
+  - stage:
+      name: "kube"
+      identifier: "kube"
+      description: ""
+      type: "Deployment"
+      spec:
+        deploymentType: "Kubernetes"
+        execution:
+          steps:
+          - step:
+              type: "HarnessApproval"
+              name: "HarnessApproval_1"
+              identifier: "HarnessApproval_1"
+              spec:
+                approvalMessage: "Please review the following information and approve\
+                  \ the pipeline progression"
+                includePipelineExecutionHistory: true
+                isAutoRejectEnabled: false
+                approvers:
+                  userGroups:
+                  - "account._account_all_users"
+                  minimumCount: 1
+                  disallowPipelineExecutor: false
+                approverInputs: []
+              timeout: "1d"
+          rollbackSteps: []
+        services:
+          values:
+          - serviceRef: "kubeId"
+            serviceInputs:
+              serviceDefinition:
+                type: "Kubernetes"
+                spec:
+                  artifacts:
+                    primary:
+                      primaryArtifactRef: "<+input>"
+                      sources: "<+input>"
+          - serviceRef: "kubeId2"
+            serviceInputs:
+              serviceDefinition:
+                type: "Kubernetes"
+                spec:
+                  artifacts:
+                    primary:
+                      primaryArtifactRef: "<+input>"
+                      sources: "<+input>"
+          metadata:
+            parallel: false
+        environments:
+          metadata:
+            parallel: false
+          values:
+          - environmentRef: "kubeID"
+            deployToAll: false
+            infrastructureDefinitions:
+            - identifier: "kubeID"
+          - environmentRef: "kubeID2"
+            deployToAll: false
+            infrastructureDefinitions:
+            - identifier: "kubeID2"
+      tags: {}
+      failureStrategies:
+      - onFailure:
+          errors:
+          - "AllErrors"
+          action:
+            type: "StageRollback"
+  identifier: "rishabhtest_Clone_Clone_Clone"
+  name: "rishabh-test - Clone - Clone - Clone"
