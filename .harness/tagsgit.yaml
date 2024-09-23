@@ -19,8 +19,7 @@ pipeline:
                   name: HarnessApproval_1
                   identifier: HarnessApproval_1
                   spec:
-                    approvalMessage: Please review the following information and approve
-                      the pipeline progression
+                    approvalMessage: Please review the following information and approve the pipeline progression
                     includePipelineExecutionHistory: true
                     isAutoRejectEnabled: false
                     approvers:
@@ -40,15 +39,8 @@ pipeline:
                   spec:
                     duration: 10m
           service:
-            serviceRef: tt
-            serviceInputs:
-              serviceDefinition:
-                type: Kubernetes
-                spec:
-                  artifacts:
-                    primary:
-                      primaryArtifactRef: <+input>
-                      sources: <+input>
+            serviceRef: <+input>
+            serviceInputs: <+input>
           environment:
             environmentRef: env2
             deployToAll: false
