@@ -16,7 +16,7 @@ pipeline:
             steps:
               - step:
                   type: HarnessApproval
-                  name: HarnessApproval_1
+                  name: HarnessApproval_2
                   identifier: HarnessApproval_1
                   spec:
                     approvalMessage: Please review the following information and approve the pipeline progression
