@@ -39,8 +39,7 @@ pipeline:
                   spec:
                     duration: 10m
           service:
-            serviceRef: <+input>
-            serviceInputs: <+input>
+            serviceRef: tt
           environment:
             environmentRef: env2
             deployToAll: false
