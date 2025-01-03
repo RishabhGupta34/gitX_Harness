@@ -1,0 +1,66 @@
+pipeline:
+  orgIdentifier: default
+  tags:
+    tagOnlyKey: t
+    hello: hello
+    v1: ""
+  stages:
+    - stage:
+        name: test
+        identifier: test
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: Kubernetes
+          execution:
+            steps:
+              - step:
+                  type: HarnessApproval
+                  name: HarnessApproval_1
+                  identifier: HarnessApproval_1
+                  spec:
+                    approvalMessage: Please review the following information and approve
+                      the pipeline progression
+                    includePipelineExecutionHistory: true
+                    isAutoRejectEnabled: false
+                    approvers:
+                      userGroups:
+                        - account._account_all_users
+                      minimumCount: 1
+                      disallowPipelineExecutor: false
+                    approverInputs:
+                      - name: test
+                        defaultValue: ""
+                  timeout: 1d
+            rollbackSteps:
+              - step:
+                  type: Wait
+                  name: Wait_1
+                  identifier: Wait_1
+                  spec:
+                    duration: 10m
+          service:
+            serviceRef: <+input>
+            serviceInputs: <+input>
+          environment:
+            environmentRef: env
+            deployToAll: false
+            infrastructureDefinitions:
+              - identifier: infra
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: PipelineRollback
+        variables:
+          - name: localdelegate
+            type: String
+            description: ""
+            required: false
+            value: localdelegate
+  projectIdentifier: ElasticTest
+  identifier: rishabh_Clone
+  description: hello
+  name: rishabh - Clone
