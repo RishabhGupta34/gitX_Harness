@@ -13,11 +13,10 @@ pipeline:
             steps:
               - step:
                   type: HarnessApproval
-                  name: HarnessApproval_1
+                  name: HarnessApproval_1a
                   identifier: HarnessApproval_1
                   spec:
-                    approvalMessage: Please review the following information and approve
-                      the pipeline progression
+                    approvalMessage: Please review the following information and approve the pipeline progression
                     includePipelineExecutionHistory: true
                     isAutoRejectEnabled: false
                     approvers:
