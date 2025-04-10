@@ -35,14 +35,5 @@ pipeline:
                 - AllErrors
               action:
                 type: Abort
-    - stage:
-        name: t
-        identifier: t
-        description: ""
-        type: Pipeline
-        spec:
-          org: default
-          pipeline: approval_Clone_Clone
-          project: Elastic
   identifier: approval_Clone
   name: approval - Clone
