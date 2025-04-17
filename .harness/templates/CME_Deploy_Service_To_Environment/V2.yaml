@@ -40,5 +40,5 @@ template:
             - AllErrors
           action:
             type: StageRollback
-    timeout: 10m
+    timeout: 100m
   versionLabel: V2
