@@ -1,7 +1,7 @@
+
 template:
   name: CME Deploy Service To Environment
   identifier: CME_Deploy_Service_To_Environment
-  versionLabel: V1
   type: Stage
   tags: {}
   spec:
@@ -42,3 +42,4 @@ template:
           action:
             type: StageRollback
     timeout: 10m
+  versionLabel: V1
