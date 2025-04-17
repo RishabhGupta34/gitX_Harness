@@ -41,4 +41,4 @@ template:
             - AllErrors
           action:
             type: StageRollback
-    timeout: 10m
+    timeout: 108m
