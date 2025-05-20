@@ -31,4 +31,4 @@ pipeline:
                     callbackId: aa
         tags: {}
   identifier: rr_Clone_Clone
-  name: rr - Clone - Clone
+  name: rr - Clone
