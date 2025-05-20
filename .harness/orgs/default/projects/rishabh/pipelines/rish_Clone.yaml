@@ -1,0 +1,30 @@
+pipeline:
+  projectIdentifier: rishabh
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: ca
+        identifier: c
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: cc
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
+  identifier: rish_Clone
+  name: rish - Clone
