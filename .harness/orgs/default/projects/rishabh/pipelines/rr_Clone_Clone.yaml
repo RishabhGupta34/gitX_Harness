@@ -1,0 +1,34 @@
+pipeline:
+  projectIdentifier: rishabh
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: aa
+        identifier: aa
+        description: ""
+        type: Approval
+        spec:
+          execution:
+            steps:
+              - step:
+                  name: aa
+                  identifier: aa
+                  type: HarnessApproval
+                  timeout: 1d
+                  spec:
+                    approvalMessage: |-
+                      Please review the following information
+                      and approve the pipeline progression
+                    includePipelineExecutionHistory: true
+                    approvers:
+                      minimumCount: 1
+                      disallowPipelineExecutor: false
+                      userGroups:
+                        - account._account_all_users
+                    isAutoRejectEnabled: false
+                    approverInputs: []
+                    callbackId: aa
+        tags: {}
+  identifier: rr_Clone_Clone
+  name: rr - Clone - Clone
