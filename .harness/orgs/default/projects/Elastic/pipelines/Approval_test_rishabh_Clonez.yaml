@@ -2,6 +2,7 @@ pipeline:
   projectIdentifier: Elastic
   orgIdentifier: default
   tags: {}
+  description: "hello"
   stages:
     - stage:
         name: app
@@ -16,7 +17,7 @@ pipeline:
                   name: HarnessApproval_1a
                   identifier: HarnessApproval_1
                   spec:
-                    approvalMessage: Please review the following information and approve
+                    approvalMessage: Please review the following information and approve hello
                       the pipeline progression
                     includePipelineExecutionHistory: true
                     isAutoRejectEnabled: false
