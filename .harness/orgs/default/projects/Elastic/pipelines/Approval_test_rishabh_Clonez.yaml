@@ -6,7 +6,7 @@ pipeline:
     - stage:
         name: app
         identifier: app
-        description: ""
+        description: "hello"
         type: Custom
         spec:
           execution:
