@@ -3,6 +3,7 @@ pipeline:
     remote: true
     env: qa
     type: k8s
+    repo: github
   stages:
     - stage:
         name: Deploy Stage
