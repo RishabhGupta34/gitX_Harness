@@ -1,9 +1,9 @@
 pipeline:
   tags: 
-    remote: true
-    env: qa
-    type: k8s
-    repo: github
+    remote: "true"
+    env: "qa"
+    type: "k8s"
+    repo: "github"
   stages:
     - stage:
         name: Deploy Stage
@@ -148,9 +148,9 @@ pipeline:
                           type: MarkAsSuccess
             rollbackSteps: []
         tags: 
-          type: k8s
-          stage: true
-          remote: true
+          type: "k8s"
+          stage: "true"
+          remote: "true"
         variables:
           - name: resourceNamePrefix
             type: String
