@@ -4,7 +4,7 @@ pipeline:
     - stage:
         name: Deploy Stage
         identifier: stage1
-        description: ""
+        description: "This stage is for K8s deployment"
         type: Deployment
         spec:
           serviceConfig:
