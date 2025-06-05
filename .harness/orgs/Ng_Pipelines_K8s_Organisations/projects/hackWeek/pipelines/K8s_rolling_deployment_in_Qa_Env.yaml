@@ -107,20 +107,6 @@ pipeline:
                               type: K8sCanaryDelete
                               timeout: 10m
                               spec: {}
-              - step:
-                  type: ShellScript
-                  name: ShellScript_2
-                  identifier: ShellScript_2
-                  spec:
-                    shell: Bash
-                    executionTarget: {}
-                    source:
-                      type: Inline
-                      spec:
-                        script: exit 1
-                    environmentVariables: []
-                    outputVariables: []
-                  timeout: 10m
               - stepGroup:
                   name: Primary Deployment
                   identifier: primaryDeployment
