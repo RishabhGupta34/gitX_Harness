@@ -68,6 +68,20 @@ pipeline:
             allowSimultaneousDeployments: true
           execution:
             steps:
+              - step:
+                  type: ShellScript
+                  name: Test script
+                  identifier: Test_script
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: exit 0
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
               - stepGroup:
                   name: Canary Deployment Group
                   identifier: canaryDeploymentGroup
