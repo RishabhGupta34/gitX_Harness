@@ -1,0 +1,153 @@
+pipeline:
+  tags: {}
+  stages:
+    - stage:
+        name: stage1
+        identifier: stage1
+        description: ""
+        type: Deployment
+        spec:
+          serviceConfig:
+            serviceDefinition:
+              spec:
+                artifacts:
+                  sidecars: []
+                  primary:
+                    spec:
+                      connectorRef: org.GCRConnectorForAutomationTest
+                      repositoryType: docker
+                      project: qa-target
+                      region: us-east1
+                      repositoryName: automation-todolist
+                      package: automation-todolist
+                      version: latest
+                      digest: ""
+                    type: GoogleArtifactRegistry
+                manifests:
+                  - manifest:
+                      identifier: manifest
+                      type: K8sManifest
+                      spec:
+                        store:
+                          type: Git
+                          spec:
+                            connectorRef: org.GitConnectorV2ForAutomationTest
+                            gitFetchType: Branch
+                            branch: master
+                            paths:
+                              - ng-automation/k8s/templates/
+                  - manifest:
+                      identifier: values
+                      type: Values
+                      spec:
+                        store:
+                          type: Git
+                          spec:
+                            connectorRef: org.GitConnectorV2ForAutomationTest
+                            gitFetchType: Branch
+                            branch: master
+                            paths:
+                              - ng-automation/k8s/values.yaml
+              type: Kubernetes
+            service:
+              name: k8s_svcmphiu
+              identifier: k8s_svcmphiu
+            stageOverrides:
+              manifests: []
+          infrastructure:
+            infrastructureDefinition:
+              type: KubernetesDirect
+              spec:
+                connectorRef: org.KubernetesConnectorForAutomationTest
+                namespace: ns
+                releaseName: test-rel-initx
+            environment:
+              name: k8s_enveyqsp
+              identifier: k8s_enveyqsp
+              type: PreProduction
+            allowSimultaneousDeployments: true
+          execution:
+            steps:
+              - stepGroup:
+                  name: Canary Deployment Group
+                  identifier: canaryDeploymentGroup
+                  steps:
+                    - stepGroup:
+                        name: NestedStepGroup
+                        identifier: NestedStepGroup
+                        steps:
+                          - step:
+                              name: Canary Deployment
+                              identifier: canaryDeployment
+                              type: K8sCanaryDeploy
+                              timeout: 10m
+                              spec:
+                                skipDryRun: true
+                                instanceSelection:
+                                  type: Count
+                                  spec:
+                                    count: "1"
+                          - step:
+                              name: Canary Delete
+                              identifier: canaryDelete
+                              type: K8sCanaryDelete
+                              timeout: 10m
+                              spec: {}
+              - stepGroup:
+                  name: Primary Deployment
+                  identifier: primaryDeployment
+                  steps:
+                    - step:
+                        name: Rolling Deployment
+                        identifier: rollingDeployment
+                        type: K8sRollingDeploy
+                        timeout: 10m
+                        spec:
+                          skipDryRun: true
+                  rollbackSteps:
+                    - step:
+                        name: Rolling Rollback
+                        identifier: rollingRollback
+                        type: K8sRollingRollback
+                        timeout: 10m
+                        spec: {}
+              - step:
+                  type: K8sDelete
+                  name: finaldelete
+                  identifier: final_delete
+                  timeout: 10m
+                  spec:
+                    deleteResources:
+                      type: ResourceName
+                      spec:
+                        resourceNames:
+                          - Deployment/<+stage.variables.resourceNamePrefix>-deployment
+                  failureStrategies:
+                    - onFailure:
+                        errors:
+                          - AllErrors
+                        action:
+                          type: MarkAsSuccess
+            rollbackSteps: []
+        tags: {}
+        variables:
+          - name: resourceNamePrefix
+            type: String
+            value: k8s-sanity-uhopf
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  variables:
+    - name: var1
+      type: String
+      description: ""
+      required: false
+      value: <+input>
+  projectIdentifier: hackWeek
+  identifier: K8s_rolling_deployment_in_Qa_Env
+  description: ""
+  name: K8s rolling deployment in Qa Env
