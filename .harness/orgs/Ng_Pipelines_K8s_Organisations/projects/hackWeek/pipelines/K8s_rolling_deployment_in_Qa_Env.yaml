@@ -1,5 +1,8 @@
 pipeline:
-  tags: {}
+  tags: 
+    remote: true
+    env: qa
+    type: k8s
   stages:
     - stage:
         name: Deploy Stage
