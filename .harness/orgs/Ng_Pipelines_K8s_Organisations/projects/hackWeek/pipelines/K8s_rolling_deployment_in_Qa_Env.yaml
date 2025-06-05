@@ -8,7 +8,7 @@ pipeline:
     - stage:
         name: Deploy Stage
         identifier: stage1
-        description: "This stage is for K8s deployment"
+        description: "This stage is for K8s deployment in QA"
         type: Deployment
         spec:
           serviceConfig:
@@ -147,7 +147,10 @@ pipeline:
                         action:
                           type: MarkAsSuccess
             rollbackSteps: []
-        tags: {}
+        tags: 
+          type: k8s
+          stage: true
+          remote: true
         variables:
           - name: resourceNamePrefix
             type: String
