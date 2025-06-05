@@ -141,12 +141,6 @@ pipeline:
               action:
                 type: StageRollback
   orgIdentifier: Ng_Pipelines_K8s_Organisations
-  variables:
-    - name: var1
-      type: String
-      description: ""
-      required: false
-      value: <+input>
   projectIdentifier: hackWeek
   identifier: K8s_rolling_deployment_in_Qa_Env
   description: ""
