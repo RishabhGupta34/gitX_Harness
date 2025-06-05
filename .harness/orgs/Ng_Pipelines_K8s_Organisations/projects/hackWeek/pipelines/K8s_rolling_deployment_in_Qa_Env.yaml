@@ -147,10 +147,7 @@ pipeline:
                         action:
                           type: MarkAsSuccess
             rollbackSteps: []
-        tags: 
-          type: "k8s"
-          stage: "true"
-          remote: "true"
+        tags: {}
         variables:
           - name: resourceNamePrefix
             type: String
