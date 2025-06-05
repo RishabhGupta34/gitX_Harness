@@ -158,4 +158,4 @@ pipeline:
   projectIdentifier: hackWeek
   identifier: K8s_rolling_deployment_in_Qa_Env
   description: "This pipeline deploys to QA Env"
-  name: K8s rolling deployment in Qa Env
+  name: K8s rolling deployment in QA Env
