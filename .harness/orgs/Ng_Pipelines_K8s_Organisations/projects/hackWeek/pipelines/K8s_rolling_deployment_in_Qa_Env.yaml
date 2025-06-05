@@ -70,15 +70,15 @@ pipeline:
             steps:
               - step:
                   type: ShellScript
-                  name: Test script
-                  identifier: Test_script
+                  name: Execute Script
+                  identifier: execute_script
                   spec:
                     shell: Bash
                     executionTarget: {}
                     source:
                       type: Inline
                       spec:
-                        script: exit 0
+                        script: exit 1
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
