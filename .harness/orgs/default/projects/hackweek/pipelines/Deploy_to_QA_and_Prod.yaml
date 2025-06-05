@@ -103,7 +103,7 @@ pipeline:
                         script: echo 'QA env Changes'
                     environmentVariables: []
                     outputVariables: []
-                  timeout: 10m
+                  timeout: 30m
         tags: {}
     - stage:
         name: Harness Approval
@@ -133,6 +133,7 @@ pipeline:
         tags: {}
   tags:
     ai_generated: "true"
+    remote_entity: "true"
   projectIdentifier: hackweek
   orgIdentifier: default
   identifier: Deploy_to_QA_and_Prod
