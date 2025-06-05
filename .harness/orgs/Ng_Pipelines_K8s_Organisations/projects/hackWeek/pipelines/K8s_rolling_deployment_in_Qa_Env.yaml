@@ -2,7 +2,7 @@ pipeline:
   tags: {}
   stages:
     - stage:
-        name: stage1
+        name: Deploy Stage
         identifier: stage1
         description: ""
         type: Deployment
@@ -157,5 +157,5 @@ pipeline:
   orgIdentifier: Ng_Pipelines_K8s_Organisations
   projectIdentifier: hackWeek
   identifier: K8s_rolling_deployment_in_Qa_Env
-  description: ""
+  description: "This pipeline deploys to QA Env"
   name: K8s rolling deployment in Qa Env
