@@ -1,5 +1,5 @@
 template:
-  name: approval org
+  name: approval org test
   identifier: approval_org
   versionLabel: v1
   type: Step
