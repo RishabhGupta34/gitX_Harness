@@ -7,7 +7,7 @@ template:
   tags: {}
   spec:
     type: HarnessApproval
-    timeout: 1d
+    timeout: 10s
     spec:
       approvalMessage: Please review the following information and approve the pipeline progression
       includePipelineExecutionHistory: true
