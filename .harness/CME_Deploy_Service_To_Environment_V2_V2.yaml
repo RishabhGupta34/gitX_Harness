@@ -24,6 +24,18 @@ template:
               template:
                 templateRef: account.csd
                 versionLabel: v2
+          - parallel:
+              - step:
+                  name: test
+                  identifier: test
+                  template:
+                    templateRef: account.k8s
+                    versionLabel: v1
+              - step:
+                  name: teststable
+                  identifier: teststable
+                  template:
+                    templateRef: account.csd
         rollbackSteps:
           - step:
               name: Rollback Rollout Deployment
