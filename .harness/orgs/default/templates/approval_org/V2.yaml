@@ -1,0 +1,20 @@
+template:
+  name: approval org test
+  identifier: approval_org
+  type: Step
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: HarnessApproval
+    timeout: 1d
+    spec:
+      approvalMessage: Please review the following information and approve the pipeline progression
+      includePipelineExecutionHistory: true
+      isAutoRejectEnabled: false
+      approvers:
+        userGroups:
+          - account._account_all_users
+        minimumCount: 1
+        disallowPipelineExecutor: false
+      approverInputs: []
+  versionLabel: V2
