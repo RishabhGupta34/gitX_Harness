@@ -30,6 +30,12 @@ template:
               template:
                 templateRef: account.testSG1
                 versionLabel: v1
+          - stepGroup:
+              name: tesstt
+              identifier: tesstt
+              template:
+                templateRef: account.testSG
+                versionLabel: v1
         rollbackSteps:
           - step:
               name: Rollback Rollout Deployment
