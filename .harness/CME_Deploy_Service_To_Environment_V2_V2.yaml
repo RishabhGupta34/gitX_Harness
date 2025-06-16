@@ -24,6 +24,12 @@ template:
               template:
                 templateRef: account.csd
                 versionLabel: v2
+          - stepGroup:
+              name: test
+              identifier: test
+              template:
+                templateRef: account.testSG1
+                versionLabel: v1
         rollbackSteps:
           - step:
               name: Rollback Rollout Deployment
