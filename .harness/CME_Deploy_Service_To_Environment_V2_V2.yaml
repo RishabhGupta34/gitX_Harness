@@ -25,7 +25,7 @@ template:
                 templateRef: account.csd
                 versionLabel: v2
           - stepGroup:
-              name: test
+              name: testt
               identifier: test
               template:
                 templateRef: account.testSG1
