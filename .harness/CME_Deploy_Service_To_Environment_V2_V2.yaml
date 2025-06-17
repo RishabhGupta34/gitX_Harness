@@ -24,18 +24,12 @@ template:
               template:
                 templateRef: account.csd
                 versionLabel: v2
-          - parallel:
-              - stepGroup:
-                  name: testtt
-                  identifier: test
-                  template:
-                    templateRef: account.testSG1
-                    versionLabel: v1
-              - stepGroup:
-                  name: stablesg
-                  identifier: stablesg
-                  template:
-                    templateRef: account.testSG1
+          - stepGroup:
+              name: testtt
+              identifier: test
+              template:
+                templateRef: account.testSG1
+                versionLabel: v1
           - stepGroup:
               name: tesstt
               identifier: tesstt
