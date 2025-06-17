@@ -26,7 +26,7 @@ template:
                 versionLabel: v2
           - parallel:
               - stepGroup:
-                  name: testt
+                  name: testtt
                   identifier: test
                   template:
                     templateRef: account.testSG1
