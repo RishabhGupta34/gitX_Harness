@@ -1,0 +1,19 @@
+inputSet:
+  name: test
+  identifier: test
+  orgIdentifier: default
+  projectIdentifier: Elastic
+  pipeline:
+    identifier: custom
+    stages:
+      - stage:
+          identifier: cystom
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: Wait_1
+                    type: Wait
+                    spec:
+                      duration: <+input>
