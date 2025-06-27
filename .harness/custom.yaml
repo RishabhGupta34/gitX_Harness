@@ -1,0 +1,22 @@
+pipeline:
+  name: custom
+  identifier: custom
+  projectIdentifier: Elastic
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: cystom
+        identifier: cystom
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: Wait
+                  name: Wait_1
+                  identifier: Wait_1
+                  spec:
+                    duration: <+input>
+        tags: {}
