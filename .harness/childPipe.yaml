@@ -4,8 +4,8 @@ pipeline:
   orgIdentifier: default
   stages:
     - stage:
-        name: dev2
-        identifier: dev2
+        name: dev
+        identifier: dev
         description: ""
         type: Deployment
         spec:
