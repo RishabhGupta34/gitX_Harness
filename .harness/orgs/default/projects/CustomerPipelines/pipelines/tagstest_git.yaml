@@ -6,7 +6,7 @@ pipeline:
     - stage:
         name: shel
         identifier: shel
-        description: "dddjjjmzt"
+        description: dddjjjmzt
         type: Custom
         sendGitStatus:
           enabled: true
@@ -49,9 +49,42 @@ pipeline:
                     environmentVariables:
                       - name: env
                         type: String
-                        value: "a,b"
+                        value: a,b
                     outputVariables: []
                   timeout: 10m
         tags: {}
+    - stage:
+        name: cd
+        identifier: cd
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: CustomDeployment
+          customDeploymentRef:
+            templateRef: account.dtV1
+            versionLabel: v1
+          execution:
+            steps:
+              - step:
+                  name: Fetch Instances
+                  identifier: fetchInstances
+                  type: FetchInstanceScript
+                  timeout: 10m
+                  spec: {}
+            rollbackSteps: []
+          service:
+            serviceRef: account.dtv1
+          environment:
+            environmentRef: account.prodEnvWithoutFreeze
+            deployToAll: false
+            infrastructureDefinitions:
+              - identifier: dtv1
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
   identifier: tagstest_git
   name: tagstest_git
