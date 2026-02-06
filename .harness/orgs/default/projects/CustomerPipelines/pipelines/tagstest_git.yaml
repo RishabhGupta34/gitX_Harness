@@ -6,7 +6,7 @@ pipeline:
     - stage:
         name: shel
         identifier: shel
-        description: "dddmzt"
+        description: "dddjjjmzt"
         type: Custom
         sendGitStatus:
           enabled: true
