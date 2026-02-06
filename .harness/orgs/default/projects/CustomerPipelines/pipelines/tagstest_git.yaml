@@ -1,0 +1,57 @@
+pipeline:
+  projectIdentifier: CustomerPipelines
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: shel
+        identifier: shel
+        description: ""
+        type: Custom
+        sendGitStatus:
+          enabled: true
+          name: hello
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: Http
+                  name: Http_1
+                  identifier: Http_1
+                  spec:
+                    url: https://www.google.com
+                    method: GET
+                    headers: []
+                    inputVariables: []
+                    outputVariables: []
+                    delegateSelectors:
+                      - localdelegate
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: |-
+                          echo "HEllo this is a simple script"
+
+                          mv /harness /tmp/harness
+
+                          echo "Done"
+
+                          echo <+pipeline.name>
+                          echo <+secrets.getValue("test")>
+                    environmentVariables:
+                      - name: env
+                        type: String
+                        value: "a,b"
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
+  identifier: tagstest_git
+  name: tagstest_git
