@@ -1,2 +1,1 @@
-# gitX_Harnesstt
-tt
+# gitX_Harness
