@@ -54,6 +54,12 @@ template:
                           value: a,b
                       outputVariables: []
                     timeout: 10m
+                - step:
+                    name: tmp t1
+                    identifier: tmp_t1
+                    template:
+                      templateRef: tmp_t1
+                      versionLabel: v1
           tags: {}
       - stage:
           name: l
