@@ -1,0 +1,157 @@
+template:
+  name: cdstageTemp
+  type: Stage
+  projectIdentifier: CustomerPipelines
+  orgIdentifier: default
+  spec:
+    type: Deployment
+    spec:
+      deploymentType: Kubernetes
+      service:
+        serviceRef: org.service
+        serviceInputs:
+          serviceDefinition:
+            type: Kubernetes
+            spec:
+              variables:
+                - name: testvar
+                  type: String
+                  value: a
+      environment:
+        environmentRef: org.prodOrg
+        deployToAll: false
+        infrastructureDefinitions:
+          - identifier: infra2
+      execution:
+        steps:
+          - step:
+              type: ShellScript
+              name: stageVariables
+              identifier: stageVariables
+              timeout: 10m
+              spec:
+                shell: Bash
+                onDelegate: true
+                source:
+                  type: Inline
+                  spec:
+                    script: |-
+                      echo <+stage.variables.var1>
+                      echo <+stage.variables.var1Default>
+                      echo <+stage.variables.var2>
+                      echo <+stage.variables.var2Default>
+                      echo <+stage.variables.var3>
+                      echo <+stage.variables.var3Default>
+                      echo <+stage.variables.var4>
+                      echo <+stage.variables.var5>
+                      echo <+stage.variables.var6>
+                      echo <+stage.variables.var7>
+                      echo <+stage.variables.var8>
+                      echo <+stage.variables.var9>
+                environmentVariables: []
+                outputVariables: []
+          - step:
+              type: ShellScript
+              name: ShellScript_1
+              identifier: ShellScript_1
+              timeout: 10m
+              spec:
+                shell: Bash
+                onDelegate: true
+                source:
+                  type: Inline
+                  spec:
+                    script: |-
+                      echo <+env.variables.env1Default>
+                      echo <+env.variables.env1Runtime>
+                      echo <+env.variables.env1Variable>
+
+                      echo <+env.variables.env2Default>
+                      echo <+env.variables.env2Runtime>
+                      echo <+env.variables.env2Variable>
+
+                      echo <+env.variables.env3Default>
+                      echo <+env.variables.env3Runtime>
+                      echo <+env.variables.env3Variable>
+
+                      echo <+serviceVariables.service1>
+                      echo <+serviceVariables.serviceDefault>
+                      echo <+serviceVariables.serviceRuntime>
+
+                      echo <+serviceVariables.service2>
+                      echo <+serviceVariables.service2Default>
+                      echo <+serviceVariables.service2Runtime>
+
+                      echo <+serviceVariables.service3>
+                      echo <+serviceVariables.service3Default>
+                      echo <+serviceVariables.service3Runtime>
+                environmentVariables: []
+                outputVariables: []
+        rollbackSteps:
+          - step:
+              name: Rollback Rollout Deployment
+              identifier: rollbackRolloutDeployment
+              type: K8sRollingRollback
+              timeout: 10m
+              spec:
+                pruningEnabled: false
+    variables:
+      - name: var1
+        type: String
+        description: ""
+        value: "24e42"
+      - name: var1Default
+        type: String
+        default: "24e42"
+        description: ""
+        value: <+input>.default(24e42)
+      - name: var2
+        type: String
+        description: ""
+        value: "+123"
+      - name: var2Default
+        type: String
+        default: "+123"
+        description: ""
+        value: <+input>.default(+123)
+      - name: var3
+        type: String
+        description: ""
+        value: "+12.44"
+      - name: var3Default
+        type: String
+        default: "+12.44"
+        description: ""
+        value: <+input>.default(+12.44)
+      - name: var4
+        type: String
+        description: ""
+        value: <+input>.executionInput()
+      - name: var5
+        type: String
+        description: ""
+        value: <+input>.executionInput()
+      - name: var6
+        type: String
+        description: ""
+        value: <+input>.executionInput()
+      - name: var7
+        type: String
+        description: ""
+        value: <+input>
+      - name: var8
+        type: String
+        description: ""
+        value: <+input>
+      - name: var9
+        type: String
+        description: ""
+        value: <+input>
+    failureStrategies:
+      - onFailure:
+          errors:
+            - AllErrors
+          action:
+            type: StageRollback
+  identifier: cdstageTemp
+  versionLabel: v1
