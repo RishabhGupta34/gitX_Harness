@@ -1,0 +1,47 @@
+pipeline:
+  name: taggittest
+  identifier: taggittest
+  tags: {}
+  template:
+    templateRef: taggit
+    versionLabel: v1
+    templateInputs:
+      stages:
+        - stage:
+            identifier: l
+            template:
+              templateInputs:
+                type: Deployment
+                variables:
+                  - name: var1Default
+                    type: String
+                    default: "24e42"
+                    value: <+input>.default(24e42)
+                  - name: var2Default
+                    type: String
+                    default: "+123"
+                    value: <+input>.default(+123)
+                  - name: var3Default
+                    type: String
+                    default: "+12.44"
+                    value: <+input>.default(+12.44)
+                  - name: var4
+                    type: String
+                    value: <+input>.executionInput()
+                  - name: var5
+                    type: String
+                    value: <+input>.executionInput()
+                  - name: var6
+                    type: String
+                    value: <+input>.executionInput()
+                  - name: var7
+                    type: String
+                    value: <+input>
+                  - name: var8
+                    type: String
+                    value: <+input>
+                  - name: var9
+                    type: String
+                    value: <+input>
+  projectIdentifier: CustomerPipelines
+  orgIdentifier: default
