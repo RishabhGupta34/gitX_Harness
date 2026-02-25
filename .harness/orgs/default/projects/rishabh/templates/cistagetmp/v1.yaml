@@ -23,13 +23,15 @@ template:
       execution:
         steps:
           - step:
-              type: Run
-              name: Run_1
-              identifier: Run_1
-              spec:
-                connectorRef: account.harnessImage
-                image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
-                shell: Sh
-                command: echo 1
+              name: rnustep
+              identifier: rnustep
+              template:
+                templateRef: runstp
+                versionLabel: v1
+                gitBranch: main
+                templateInputs:
+                  type: Run
+                  spec:
+                    image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
   identifier: cistagetmp
   versionLabel: v1
