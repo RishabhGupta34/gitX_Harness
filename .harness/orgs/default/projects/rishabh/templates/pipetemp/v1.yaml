@@ -33,33 +33,19 @@ template:
       - stage:
           name: ci
           identifier: ci
-          description: ""
-          type: CI
-          spec:
-            cloneCodebase: false
-            caching:
-              enabled: true
-              override: true
-            buildIntelligence:
-              enabled: true
-            infrastructure:
-              type: KubernetesDirect
+          template:
+            templateRef: cistagetmp
+            versionLabel: v1
+            gitBranch: main
+            templateInputs:
+              type: CI
               spec:
-                connectorRef: k8sdelegate
-                namespace: harness-delegate-ng
-                automountServiceAccountToken: true
-                nodeSelector: {}
-                os: Linux
-            execution:
-              steps:
-                - step:
-                    type: Run
-                    name: Run_1
-                    identifier: Run_1
-                    spec:
-                      connectorRef: account.harnessImage
-                      image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
-                      shell: Sh
-                      command: echo 1
+                execution:
+                  steps:
+                    - step:
+                        identifier: Run_1
+                        type: Run
+                        spec:
+                          image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
   identifier: pipetemp
   versionLabel: v1
