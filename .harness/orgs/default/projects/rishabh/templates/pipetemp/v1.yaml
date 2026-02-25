@@ -43,9 +43,11 @@ template:
                 execution:
                   steps:
                     - step:
-                        identifier: Run_1
-                        type: Run
-                        spec:
-                          image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
+                        identifier: rnustep
+                        template:
+                          templateInputs:
+                            type: Run
+                            spec:
+                              image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
   identifier: pipetemp
   versionLabel: v1
