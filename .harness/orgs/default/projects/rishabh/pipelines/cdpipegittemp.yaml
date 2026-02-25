@@ -5,5 +5,18 @@ pipeline:
   template:
     templateRef: pipetemp
     versionLabel: v1
+    templateInputs:
+      stages:
+        - stage:
+            identifier: ci
+            type: CI
+            spec:
+              execution:
+                steps:
+                  - step:
+                      identifier: Run_1
+                      type: Run
+                      spec:
+                        image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
   projectIdentifier: rishabh
   orgIdentifier: default
