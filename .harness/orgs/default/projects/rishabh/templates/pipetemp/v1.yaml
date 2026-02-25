@@ -1,0 +1,65 @@
+template:
+  name: pipe-temp
+  type: Pipeline
+  projectIdentifier: rishabh
+  orgIdentifier: default
+  spec:
+    stages:
+      - stage:
+          name: custom
+          identifier: custom
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    type: ShellScript
+                    name: ShellScript_1
+                    identifier: ShellScript_1
+                    spec:
+                      shell: Bash
+                      executionTarget: {}
+                      source:
+                        type: Inline
+                        spec:
+                          script: echo 1
+                      environmentVariables: []
+                      outputVariables: []
+                      delegateSelectors:
+                        - kubernetes-delegate
+                    timeout: 10m
+          tags: {}
+      - stage:
+          name: ci
+          identifier: ci
+          description: ""
+          type: CI
+          spec:
+            cloneCodebase: false
+            caching:
+              enabled: true
+              override: true
+            buildIntelligence:
+              enabled: true
+            infrastructure:
+              type: KubernetesDirect
+              spec:
+                connectorRef: k8sdelegate
+                namespace: harness-delegate-ng
+                automountServiceAccountToken: true
+                nodeSelector: {}
+                os: Linux
+            execution:
+              steps:
+                - step:
+                    type: Run
+                    name: Run_1
+                    identifier: Run_1
+                    spec:
+                      connectorRef: account.harnessImage
+                      image: library/nginx
+                      shell: Sh
+                      command: echo 1
+  identifier: pipetemp
+  versionLabel: v1
