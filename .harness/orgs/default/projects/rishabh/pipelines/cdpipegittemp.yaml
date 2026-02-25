@@ -1,0 +1,9 @@
+pipeline:
+  name: cdpipegittemp
+  identifier: cdpipegittemp
+  tags: {}
+  template:
+    templateRef: pipetemp
+    versionLabel: v1
+  projectIdentifier: rishabh
+  orgIdentifier: default
