@@ -39,7 +39,7 @@ template:
       infrastructure:
         type: KubernetesDirect
         spec:
-          connectorRef: cik8
+          connectorRef: ciplay
           namespace: harness-delegate-
           automountServiceAccountToken: true
           nodeSelector: {}
