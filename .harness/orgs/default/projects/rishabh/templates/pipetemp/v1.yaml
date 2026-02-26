@@ -55,6 +55,12 @@ template:
                       delegateSelectors:
                         - kubernetes-delegate
                     timeout: 10m
+                - stepGroup:
+                    name: stg
+                    identifier: stg
+                    template:
+                      templateRef: org.customstg
+                      versionLabel: v1
           tags: {}
   identifier: pipetemp
   versionLabel: v1
