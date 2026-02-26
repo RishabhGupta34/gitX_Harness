@@ -6,31 +6,6 @@ template:
   spec:
     stages:
       - stage:
-          name: custom
-          identifier: custom
-          description: ""
-          type: Custom
-          spec:
-            execution:
-              steps:
-                - step:
-                    type: ShellScript
-                    name: ShellScript_1
-                    identifier: ShellScript_1
-                    spec:
-                      shell: Bash
-                      executionTarget: {}
-                      source:
-                        type: Inline
-                        spec:
-                          script: echo 1
-                      environmentVariables: []
-                      outputVariables: []
-                      delegateSelectors:
-                        - kubernetes-delegate
-                    timeout: 10m
-          tags: {}
-      - stage:
           name: ci
           identifier: ci
           template:
@@ -56,5 +31,30 @@ template:
                             type: Run
                             spec:
                               image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
+      - stage:
+          name: custom
+          identifier: custom
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    type: ShellScript
+                    name: ShellScript_1
+                    identifier: ShellScript_1
+                    spec:
+                      shell: Bash
+                      executionTarget: {}
+                      source:
+                        type: Inline
+                        spec:
+                          script: echo 1
+                      environmentVariables: []
+                      outputVariables: []
+                      delegateSelectors:
+                        - kubernetes-delegate
+                    timeout: 10m
+          tags: {}
   identifier: pipetemp
   versionLabel: v1
