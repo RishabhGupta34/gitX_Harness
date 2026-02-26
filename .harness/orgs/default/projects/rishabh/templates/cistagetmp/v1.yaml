@@ -36,11 +36,13 @@ template:
                   type: Run
                   spec:
                     image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
-      platform:
-        os: Linux
-        arch: Amd64
-      runtime:
-        type: Docker
-        spec: {}
+      infrastructure:
+        type: KubernetesDirect
+        spec:
+          connectorRef: cik8
+          namespace: harness-delegate-
+          automountServiceAccountToken: true
+          nodeSelector: {}
+          os: Linux
   identifier: cistagetmp
   versionLabel: v1
