@@ -1,0 +1,24 @@
+template:
+  name: customstg
+  identifier: customstg
+  versionLabel: v1
+  type: StepGroup
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stageType: Custom
+    steps:
+      - step:
+          type: ShellScript
+          name: ShellScript_1
+          identifier: ShellScript_1
+          spec:
+            shell: Bash
+            executionTarget: {}
+            source:
+              type: Inline
+              spec:
+                script: echo 1
+            environmentVariables: []
+            outputVariables: []
+          timeout: 10m
