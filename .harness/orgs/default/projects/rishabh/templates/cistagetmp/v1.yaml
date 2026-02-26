@@ -39,7 +39,7 @@ template:
       infrastructure:
         type: KubernetesDirect
         spec:
-          connectorRef: ciplay
+          connectorRef: k8sdelegate
           namespace: harness-delegate-ng
           automountServiceAccountToken: true
           nodeSelector: {}
