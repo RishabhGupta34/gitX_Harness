@@ -12,14 +12,6 @@ template:
         override: true
       buildIntelligence:
         enabled: true
-      infrastructure:
-        type: KubernetesDirect
-        spec:
-          connectorRef: k8sdelegate
-          namespace: harness-delegate-ng
-          automountServiceAccountToken: true
-          nodeSelector: {}
-          os: Linux
       execution:
         steps:
           - step:
@@ -44,5 +36,11 @@ template:
                   type: Run
                   spec:
                     image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
+      platform:
+        os: Linux
+        arch: Amd64
+      runtime:
+        type: Docker
+        spec: {}
   identifier: cistagetmp
   versionLabel: v1
