@@ -1,0 +1,25 @@
+template:
+  name: testpipe
+  type: Pipeline
+  projectIdentifier: templateref
+  orgIdentifier: default
+  spec:
+    stages:
+      - stage:
+          name: test
+          identifier: test
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    name: test
+                    identifier: test
+                    template:
+                      templateRef: stepgit
+                      versionLabel: v1
+                      gitBranch: main-patch1
+          tags: {}
+  identifier: testpipe
+  versionLabel: v1
