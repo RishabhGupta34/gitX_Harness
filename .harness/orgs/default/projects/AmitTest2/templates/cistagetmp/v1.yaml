@@ -1,0 +1,39 @@
+template:
+  name: cistagetmp
+  identifier: cistagetmp
+  versionLabel: v1
+  type: Stage
+  projectIdentifier: AmitTest2
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: CI
+    spec:
+      cloneCodebase: false
+      caching:
+        enabled: true
+        override: true
+        paths: []
+      buildIntelligence:
+        enabled: true
+      infrastructure:
+        type: KubernetesDirect
+        spec:
+          connectorRef: k8s
+          namespace: harness-delegate-ng-zts
+          automountServiceAccountToken: true
+          nodeSelector: {}
+          os: Linux
+      execution:
+        steps:
+          - step:
+              name: rnustep
+              identifier: rnustep
+              template:
+                templateRef: runstp
+                versionLabel: v1
+                gitBranch: main
+                templateInputs:
+                  type: Run
+                  spec:
+                    image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
