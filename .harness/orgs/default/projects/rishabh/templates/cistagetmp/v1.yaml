@@ -15,17 +15,6 @@ template:
       execution:
         steps:
           - step:
-              name: runstpaccountt
-              identifier: runstpaccountt
-              template:
-                templateRef: account.runstpaccount
-                versionLabel: v2
-                gitBranch: main
-                templateInputs:
-                  type: Run
-                  spec:
-                    image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
-          - step:
               name: rnustep
               identifier: rnustep
               template:
