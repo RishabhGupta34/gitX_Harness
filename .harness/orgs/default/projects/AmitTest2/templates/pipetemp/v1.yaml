@@ -1,0 +1,28 @@
+template:
+  name: pipe-temp
+  identifier: pipetemp
+  versionLabel: v1
+  type: Pipeline
+  projectIdentifier: AmitTest2
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: CI Build
+          identifier: CI_Build
+          template:
+            templateRef: cistagetmp
+            versionLabel: v1
+            templateInputs:
+              type: CI
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: rnustep
+                        template:
+                          templateInputs:
+                            type: Run
+                            spec:
+                              image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
