@@ -7,36 +7,20 @@ pipeline:
     versionLabel: v1
     templateInputs:
       stages:
-        - parallel:
-            - stage:
-                identifier: ci
-                template:
-                  templateInputs:
-                    type: CI
-                    spec:
-                      execution:
-                        steps:
-                          - step:
-                              identifier: rnustep
-                              template:
-                                templateInputs:
-                                  type: Run
-                                  spec:
-                                    image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
-            - stage:
-                identifier: cistg2
-                template:
-                  templateInputs:
-                    type: CI
-                    spec:
-                      execution:
-                        steps:
-                          - step:
-                              identifier: rnustep
-                              template:
-                                templateInputs:
-                                  type: Run
-                                  spec:
-                                    image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
+        - stage:
+            identifier: ci
+            template:
+              templateInputs:
+                type: CI
+                spec:
+                  execution:
+                    steps:
+                      - step:
+                          identifier: rnustep
+                          template:
+                            templateInputs:
+                              type: Run
+                              spec:
+                                image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
   projectIdentifier: rishabh
   orgIdentifier: default
