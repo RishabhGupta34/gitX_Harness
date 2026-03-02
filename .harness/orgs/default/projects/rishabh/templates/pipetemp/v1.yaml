@@ -18,13 +18,6 @@ template:
                 execution:
                   steps:
                     - step:
-                        identifier: runstpaccountt
-                        template:
-                          templateInputs:
-                            type: Run
-                            spec:
-                              image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
-                    - step:
                         identifier: rnustep
                         template:
                           templateInputs:
