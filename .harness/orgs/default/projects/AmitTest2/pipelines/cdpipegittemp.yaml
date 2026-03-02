@@ -7,41 +7,40 @@ pipeline:
     versionLabel: v1
     templateInputs:
       stages:
-        - parallel:
-            - stage:
-                identifier: CI_Build
-                template:
-                  templateInputs:
-                    type: CI
-                    spec:
-                      execution:
-                        steps:
-                          - step:
-                              identifier: rnustep
-                              template:
-                                templateInputs:
-                                  type: Run
-                                  spec:
-                                    image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
-            - stage:
-                identifier: Deploy
-                template:
-                  templateInputs:
-                    type: Deployment
-                    spec:
-                      execution:
-                        steps:
-                          - stepGroup:
-                              identifier: stpgrp
-                              template:
-                                templateInputs:
-                                  steps:
-                                    - step:
-                                        identifier: rnustep
-                                        template:
-                                          templateInputs:
-                                            type: Run
-                                            spec:
-                                              image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
+        - stage:
+            identifier: CI_Build
+            template:
+              templateInputs:
+                type: CI
+                spec:
+                  execution:
+                    steps:
+                      - step:
+                          identifier: rnustep
+                          template:
+                            templateInputs:
+                              type: Run
+                              spec:
+                                image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
+        - stage:
+            identifier: Deploy
+            template:
+              templateInputs:
+                type: Deployment
+                spec:
+                  execution:
+                    steps:
+                      - stepGroup:
+                          identifier: stpgrp
+                          template:
+                            templateInputs:
+                              steps:
+                                - step:
+                                    identifier: rnustep
+                                    template:
+                                      templateInputs:
+                                        type: Run
+                                        spec:
+                                          image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
   projectIdentifier: AmitTest2
   orgIdentifier: default
