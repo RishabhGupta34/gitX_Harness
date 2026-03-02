@@ -62,6 +62,8 @@ template:
                       templateRef: org.customstg
                       versionLabel: v1
           tags: {}
+          when:
+            pipelineStatus: Success
     delegateSelectors:
       - kubernetes-delegate
   identifier: pipetemp
