@@ -39,7 +39,7 @@ template:
       infrastructure:
         type: KubernetesDirect
         spec:
-          connectorRef: ciplay
+          connectorRef: account.cdngqatargetcluster
           namespace: harness-delegate-ng
           automountServiceAccountToken: true
           nodeSelector: {}
