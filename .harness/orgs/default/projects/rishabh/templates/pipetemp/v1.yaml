@@ -44,6 +44,6 @@ template:
                                 spec:
                                   image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
     delegateSelectors:
-      - kubernetes-delegate
+      - zts
   identifier: pipetemp
   versionLabel: v1
