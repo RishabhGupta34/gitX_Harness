@@ -62,5 +62,7 @@ template:
                       templateRef: org.customstg
                       versionLabel: v1
           tags: {}
+    delegateSelectors:
+      - kubernetes-delegate
   identifier: pipetemp
   versionLabel: v1
