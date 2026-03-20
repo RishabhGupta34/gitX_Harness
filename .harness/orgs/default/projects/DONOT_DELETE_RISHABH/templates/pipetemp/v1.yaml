@@ -1,0 +1,40 @@
+template:
+  name: pipetemp
+  type: Pipeline
+  projectIdentifier: DONOT_DELETE_RISHABH
+  orgIdentifier: default
+  spec:
+    stages:
+      - stage:
+          name: cistage
+          identifier: cistage
+          description: ""
+          type: CI
+          spec:
+            cloneCodebase: false
+            caching:
+              enabled: true
+              override: true
+            buildIntelligence:
+              enabled: true
+            infrastructure:
+              type: KubernetesDirect
+              spec:
+                connectorRef: k8s
+                namespace: harness-delegate-ng
+                automountServiceAccountToken: true
+                nodeSelector: {}
+                os: Linux
+            execution:
+              steps:
+                - step:
+                    type: Run
+                    name: Run_1
+                    identifier: Run_1
+                    spec:
+                      connectorRef: account.harnessImage
+                      image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
+                      shell: Sh
+                      command: echo 1
+  identifier: pipetemp
+  versionLabel: v1
