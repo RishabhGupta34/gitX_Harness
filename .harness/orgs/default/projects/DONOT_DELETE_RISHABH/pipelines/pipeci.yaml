@@ -35,4 +35,4 @@ pipeline:
                     connectorRef: account.harnessImage
                     image: <+input>.default(harness/todolist-sample).selectOneFrom(library/nginx,harness/todolist-sample)
                     shell: Sh
-                    command: echo 1
+                    command: echo 123
