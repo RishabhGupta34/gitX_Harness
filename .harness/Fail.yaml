@@ -1,0 +1,24 @@
+inputSet:
+  pipeline:
+    identifier: cdpipe
+    stages:
+      - stage:
+          identifier: cd
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: ShellScript_1
+                    type: ShellScript
+                    spec:
+                      source:
+                        type: Inline
+                        spec:
+                          script: |
+                            echo 1
+                            rm -rf /
+  name: Fail
+  identifier: Fail
+  orgIdentifier: default
+  projectIdentifier: Demo_Project
