@@ -27,7 +27,7 @@ pipeline:
                   timeout: 10m
         tags: {}
     - stage:
-        name: as
+        name: asa
         identifier: as
         description: ""
         type: Custom
