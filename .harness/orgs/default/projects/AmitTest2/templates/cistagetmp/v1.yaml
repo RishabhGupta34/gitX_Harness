@@ -20,7 +20,7 @@ template:
         type: KubernetesDirect
         spec:
           connectorRef: k8s
-          namespace: harness-delegate-ng-zts
+          namespace: harness-delegate-ng
           automountServiceAccountToken: true
           nodeSelector: {}
           os: Linux
