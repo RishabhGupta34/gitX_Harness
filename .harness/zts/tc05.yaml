@@ -57,8 +57,3 @@ pipeline:
                                   type: Inline
                                   spec:
                                     script: echo zts
-          environment:
-            environmentRef: env1
-            deployToAll: false
-            infrastructureDefinitions:
-              - identifier: test
