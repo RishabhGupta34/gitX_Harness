@@ -1,0 +1,18 @@
+pipeline:
+  name: ZTS TC01 Sequential steps
+  identifier: zts_tc01_seq_steps
+  projectIdentifier: ZTS
+  orgIdentifier: default
+  description: "Two sequential steps in one execution block: s1 then s2"
+  tags: {}
+  stages:
+    - stage:
+        name: st1
+        identifier: st1
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step: {name: s1, identifier: s1, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+              - step: {name: s2, identifier: s2, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+        tags: {}
