@@ -1,5 +1,5 @@
 pipeline:
-  name: ZTS TC25 Conditionally-skipped ancestor
+  name: ZTS TC17 Conditionally-skipped ancestor
   identifier: zts_tc25_skipped_ancestor
   projectIdentifier: ZTS
   orgIdentifier: default

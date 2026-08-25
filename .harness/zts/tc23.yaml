@@ -1,5 +1,5 @@
 pipeline:
-  name: ZTS TC23 Stage when pipelineStatus
+  name: ZTS TC15 Stage when pipelineStatus
   identifier: zts_tc23_stage_when_pipelinestatus
   projectIdentifier: ZTS
   orgIdentifier: default

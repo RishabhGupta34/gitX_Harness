@@ -1,5 +1,5 @@
 pipeline:
-  name: ZTS TC26 Child pipeline stage
+  name: ZTS TC18 Child pipeline stage
   identifier: zts_tc26_child_pipeline
   projectIdentifier: ZTS
   orgIdentifier: default

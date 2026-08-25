@@ -1,5 +1,5 @@
 pipeline:
-  name: ZTS TC24 when runtime input
+  name: ZTS TC16 when runtime input
   identifier: zts_tc24_when_input
   projectIdentifier: ZTS
   orgIdentifier: default

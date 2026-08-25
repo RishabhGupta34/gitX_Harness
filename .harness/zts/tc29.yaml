@@ -1,5 +1,5 @@
 pipeline:
-  name: ZTS TC29 Multi-env fan-out
+  name: ZTS TC20 Multi-env fan-out
   identifier: zts_tc29_multi_env
   projectIdentifier: ZTS
   orgIdentifier: default

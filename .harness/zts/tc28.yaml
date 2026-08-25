@@ -1,5 +1,5 @@
 pipeline:
-  name: ZTS TC28 Multi-service fan-out
+  name: ZTS TC19 Multi-service fan-out
   identifier: zts_tc28_multi_service
   projectIdentifier: ZTS
   orgIdentifier: default

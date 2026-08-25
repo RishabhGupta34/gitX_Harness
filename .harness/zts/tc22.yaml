@@ -1,5 +1,5 @@
 pipeline:
-  name: ZTS TC22 Step when stageStatus and JEXL
+  name: ZTS TC14 Step when stageStatus and JEXL
   identifier: zts_tc22_when_jexl
   projectIdentifier: ZTS
   orgIdentifier: default
