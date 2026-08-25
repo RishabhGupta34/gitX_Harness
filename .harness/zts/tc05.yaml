@@ -3,7 +3,7 @@ pipeline:
   identifier: zts_tc05_nested_stepgroups
   projectIdentifier: ZTS
   orgIdentifier: default
-  description: "Step groups nested inside step groups"
+  description: Step groups nested inside step groups
   tags: {}
   stages:
     - stage:
@@ -17,10 +17,48 @@ pipeline:
                   name: outer
                   identifier: outer
                   steps:
-                    - step: {name: o1, identifier: o1, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+                    - step:
+                        name: o1
+                        identifier: o1
+                        type: ShellScript
+                        timeout: 10m
+                        spec:
+                          shell: Bash
+                          onDelegate: true
+                          source:
+                            type: Inline
+                            spec:
+                              script: echo zts
                     - stepGroup:
                         name: inner
                         identifier: inner
                         steps:
-                          - step: {name: i1, identifier: i1, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
-                          - step: {name: i2, identifier: i2, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+                          - step:
+                              name: i1
+                              identifier: i1
+                              type: ShellScript
+                              timeout: 10m
+                              spec:
+                                shell: Bash
+                                onDelegate: true
+                                source:
+                                  type: Inline
+                                  spec:
+                                    script: echo zts
+                          - step:
+                              name: i2
+                              identifier: i2
+                              type: ShellScript
+                              timeout: 10m
+                              spec:
+                                shell: Bash
+                                onDelegate: true
+                                source:
+                                  type: Inline
+                                  spec:
+                                    script: echo zts
+          environment:
+            environmentRef: env1
+            deployToAll: false
+            infrastructureDefinitions:
+              - identifier: test
