@@ -28,5 +28,7 @@ pipeline:
                     outputVariables: []
                   timeout: 10m
         tags: {}
+        delegateSelectors:
+          - kubernetes-delegate-1
   delegateSelectors:
     - zts
