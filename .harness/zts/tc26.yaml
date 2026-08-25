@@ -1,0 +1,24 @@
+pipeline:
+  name: ZTS TC26 Child pipeline stage
+  identifier: zts_tc26_child_pipeline
+  projectIdentifier: ZTS
+  orgIdentifier: default
+  description: "stage.type = Pipeline (a child pipeline). References zts_tc01_seq_steps."
+  tags: {}
+  stages:
+    - stage:
+        name: parent1
+        identifier: parent1
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step: {name: pre, identifier: pre, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+    - stage:
+        name: child
+        identifier: child
+        type: Pipeline
+        spec:
+          org: default
+          project: ZTS
+          pipeline: zts_tc01_seq_steps

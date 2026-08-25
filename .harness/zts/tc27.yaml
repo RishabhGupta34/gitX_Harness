@@ -1,0 +1,41 @@
+pipeline:
+  name: ZTS TC27 Barrier across parallel stages
+  identifier: zts_tc27_barrier
+  projectIdentifier: ZTS
+  orgIdentifier: default
+  description: "Barrier step shared across parallel stages"
+  tags: {}
+  flowControl:
+    barriers:
+      - name: b1
+        identifier: b1
+  stages:
+    - parallel:
+        - stage:
+            name: sa
+            identifier: sa
+            type: Custom
+            spec:
+              execution:
+                steps:
+                  - step: {name: a_pre, identifier: a_pre, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+                  - step:
+                      name: a_barrier
+                      identifier: a_barrier
+                      type: Barrier
+                      timeout: 10m
+                      spec: {barrierRef: b1}
+        - stage:
+            name: sb
+            identifier: sb
+            type: Custom
+            spec:
+              execution:
+                steps:
+                  - step: {name: b_pre, identifier: b_pre, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+                  - step:
+                      name: b_barrier
+                      identifier: b_barrier
+                      type: Barrier
+                      timeout: 10m
+                      spec: {barrierRef: b1}

@@ -1,0 +1,23 @@
+pipeline:
+  name: ZTS TC12 Pipeline rollback
+  identifier: zts_tc12_pipeline_rollback
+  projectIdentifier: ZTS
+  orgIdentifier: default
+  description: "Pipeline rollback (separate rollback stage)"
+  tags: {}
+  stages:
+    - stage:
+        name: st1
+        identifier: st1
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step: {name: s1, identifier: s1, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+            rollbackSteps:
+              - step: {name: rb_s1, identifier: rb_s1, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+        failureStrategies:
+          - onFailure:
+              errors: [AllErrors]
+              action:
+                type: PipelineRollback

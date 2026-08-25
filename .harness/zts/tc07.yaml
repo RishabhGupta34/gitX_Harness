@@ -1,0 +1,28 @@
+pipeline:
+  name: ZTS TC07 Matrix runtime-expression axis
+  identifier: zts_tc07_matrix_runtime_axis
+  projectIdentifier: ZTS
+  orgIdentifier: default
+  description: "matrix whose axis is a runtime expression"
+  tags: {}
+  variables:
+    - name: axisList
+      type: String
+      value: "<+input>"
+  stages:
+    - stage:
+        name: st1
+        identifier: st1
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  name: s1
+                  identifier: s1
+                  type: ShellScript
+                  timeout: 10m
+                  spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}
+                  strategy:
+                    repeat:
+                      items: "<+pipeline.variables.axisList>"

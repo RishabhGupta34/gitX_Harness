@@ -1,0 +1,19 @@
+pipeline:
+  name: ZTS TC28 Multi-service fan-out
+  identifier: zts_tc28_multi_service
+  projectIdentifier: ZTS
+  orgIdentifier: default
+  description: "Multi-service deployment (approximated as a matrix service fan-out; a real multi-svc deploy needs services/infra)"
+  tags: {}
+  stages:
+    - stage:
+        name: deploy
+        identifier: deploy
+        type: Custom
+        strategy:
+          matrix:
+            service: [svc_a, svc_b]
+        spec:
+          execution:
+            steps:
+              - step: {name: deploy_svc, identifier: deploy_svc, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}

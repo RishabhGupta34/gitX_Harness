@@ -1,0 +1,19 @@
+pipeline:
+  name: ZTS TC03 Parallel steps after s1
+  identifier: zts_tc03_parallel_after_s1
+  projectIdentifier: ZTS
+  orgIdentifier: default
+  description: "Two steps p_a and p_b run in parallel after s1"
+  tags: {}
+  stages:
+    - stage:
+        name: st1
+        identifier: st1
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step: {name: s1, identifier: s1, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+              - parallel:
+                  - step: {name: p_a, identifier: p_a, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+                  - step: {name: p_b, identifier: p_b, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}

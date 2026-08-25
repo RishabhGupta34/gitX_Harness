@@ -1,0 +1,24 @@
+pipeline:
+  name: ZTS TC21 Step when Failure
+  identifier: zts_tc21_when_failure
+  projectIdentifier: ZTS
+  orgIdentifier: default
+  description: "A step guarded by when: Failure/All (runs only on failure)"
+  tags: {}
+  stages:
+    - stage:
+        name: st1
+        identifier: st1
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step: {name: s1, identifier: s1, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+              - step:
+                  name: s2_on_failure
+                  identifier: s2_on_failure
+                  type: ShellScript
+                  timeout: 10m
+                  spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}
+                  when:
+                    stageStatus: Failure

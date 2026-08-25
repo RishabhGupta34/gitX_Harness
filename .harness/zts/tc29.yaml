@@ -1,0 +1,20 @@
+pipeline:
+  name: ZTS TC29 Multi-env fan-out
+  identifier: zts_tc29_multi_env
+  projectIdentifier: ZTS
+  orgIdentifier: default
+  description: "Multi-environment / service x env (approximated as a matrix fan-out; a real multi-env deploy needs services/envs/infra)"
+  tags: {}
+  stages:
+    - stage:
+        name: deploy
+        identifier: deploy
+        type: Custom
+        strategy:
+          matrix:
+            service: [svc_a, svc_b]
+            env: [dev, prod]
+        spec:
+          execution:
+            steps:
+              - step: {name: deploy_combo, identifier: deploy_combo, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}

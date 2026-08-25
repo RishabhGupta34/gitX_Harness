@@ -1,0 +1,31 @@
+pipeline:
+  name: ZTS TC19 ManualIntervention
+  identifier: zts_tc19_manual_intervention
+  projectIdentifier: ZTS
+  orgIdentifier: default
+  description: "ManualIntervention failure strategy"
+  tags: {}
+  stages:
+    - stage:
+        name: st1
+        identifier: st1
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  name: s1
+                  identifier: s1
+                  type: ShellScript
+                  timeout: 10m
+                  spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}
+                  failureStrategies:
+                    - onFailure:
+                        errors: [AllErrors]
+                        action:
+                          type: ManualIntervention
+                          spec:
+                            timeout: 1d
+                            onTimeout:
+                              action:
+                                type: Ignore

@@ -1,0 +1,23 @@
+pipeline:
+  name: ZTS TC24 when runtime input
+  identifier: zts_tc24_when_input
+  projectIdentifier: ZTS
+  orgIdentifier: default
+  description: "when: <+input> (condition from a runtime input)"
+  tags: {}
+  stages:
+    - stage:
+        name: st1
+        identifier: st1
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step: {name: s1, identifier: s1, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+              - step:
+                  name: s2
+                  identifier: s2
+                  type: ShellScript
+                  timeout: 10m
+                  spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}
+                  when: "<+input>"

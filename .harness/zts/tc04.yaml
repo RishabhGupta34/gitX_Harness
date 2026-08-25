@@ -1,0 +1,19 @@
+pipeline:
+  name: ZTS TC04 Step after parallel block
+  identifier: zts_tc04_step_after_parallel
+  projectIdentifier: ZTS
+  orgIdentifier: default
+  description: "A step placed after a parallel block"
+  tags: {}
+  stages:
+    - stage:
+        name: st1
+        identifier: st1
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - parallel:
+                  - step: {name: p_a, identifier: p_a, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+                  - step: {name: p_b, identifier: p_b, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+              - step: {name: s_after, identifier: s_after, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}

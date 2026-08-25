@@ -1,0 +1,23 @@
+pipeline:
+  name: ZTS TC10 Stage rollback steps
+  identifier: zts_tc10_stage_rollback
+  projectIdentifier: ZTS
+  orgIdentifier: default
+  description: "Stage rollback steps (StageRollback failure strategy)"
+  tags: {}
+  stages:
+    - stage:
+        name: st1
+        identifier: st1
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step: {name: deploy, identifier: deploy, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+            rollbackSteps:
+              - step: {name: rb_deploy, identifier: rb_deploy, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+        failureStrategies:
+          - onFailure:
+              errors: [AllErrors]
+              action:
+                type: StageRollback

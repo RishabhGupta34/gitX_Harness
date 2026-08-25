@@ -1,0 +1,25 @@
+pipeline:
+  name: ZTS TC06 Step strategy matrix
+  identifier: zts_tc06_step_strategy_matrix
+  projectIdentifier: ZTS
+  orgIdentifier: default
+  description: "parallelism/repeat/matrix (single/multi axis)"
+  tags: {}
+  stages:
+    - stage:
+        name: st1
+        identifier: st1
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  name: s1
+                  identifier: s1
+                  type: ShellScript
+                  timeout: 10m
+                  spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}
+                  strategy:
+                    matrix:
+                      region: [us, eu]
+                      tier: [a, b]
