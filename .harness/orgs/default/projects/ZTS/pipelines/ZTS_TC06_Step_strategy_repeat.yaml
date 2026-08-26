@@ -17,19 +17,16 @@ pipeline:
                   timeout: 10m
                   spec:
                     shell: Bash
-                    onDelegate: true
                     source:
                       type: Inline
                       spec:
                         script: echo zts
+                    executionTarget: {}
+                    environmentVariables: []
+                    outputVariables: []
                   strategy:
-                    matrix:
-                      region:
-                        - us
-                        - eu
-                      tier:
-                        - a
-                        - b
+                    repeat:
+                      times: 6
               - step:
                   type: ShellScript
                   name: ShellScript_2
