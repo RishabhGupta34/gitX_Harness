@@ -3,18 +3,57 @@ pipeline:
   identifier: zts_tc29_multi_env
   projectIdentifier: ZTS
   orgIdentifier: default
-  description: "Multi-environment / service x env (approximated as a matrix fan-out; a real multi-env deploy needs services/envs/infra)"
+  description: Multi-environment / service x env (approximated as a matrix fan-out; a real multi-env deploy needs services/envs/infra)
   tags: {}
   stages:
     - stage:
-        name: deploy
-        identifier: deploy
-        type: Custom
-        strategy:
-          matrix:
-            service: [svc_a, svc_b]
-            env: [dev, prod]
+        name: cd
+        identifier: cd
+        description: ""
+        type: Deployment
         spec:
+          deploymentType: Kubernetes
+          services:
+            values:
+              - serviceRef: s1
+              - serviceRef: s2
+            metadata:
+              parallel: true
+          environments:
+            metadata:
+              parallel: false
+            values:
+              - environmentRef: e2
+                deployToAll: false
+                infrastructureDefinitions:
+                  - identifier: i1
+                  - identifier: i2
+              - environmentRef: env1
+                deployToAll: false
+                infrastructureDefinitions:
+                  - identifier: cs
+                  - identifier: cds
           execution:
             steps:
-              - step: {name: deploy_combo, identifier: deploy_combo, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+              - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo 1
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+            rollbackSteps: []
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
