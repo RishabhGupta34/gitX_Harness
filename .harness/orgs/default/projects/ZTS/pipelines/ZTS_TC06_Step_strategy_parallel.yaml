@@ -25,7 +25,7 @@ pipeline:
                     environmentVariables: []
                     outputVariables: []
                   strategy:
-                    parallelism: 1
+                    parallelism: 5
               - step:
                   type: ShellScript
                   name: ShellScript_2
