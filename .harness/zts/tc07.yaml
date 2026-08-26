@@ -34,3 +34,17 @@ pipeline:
                   strategy:
                     repeat:
                       items: <+pipeline.variables.axisList.split(",")>
+              - step:
+                  type: ShellScript
+                  name: ShellScript_2
+                  identifier: ShellScript_2
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo 1
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
