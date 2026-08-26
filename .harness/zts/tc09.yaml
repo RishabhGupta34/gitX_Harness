@@ -26,11 +26,15 @@ pipeline:
                         timeout: 10m
                         spec:
                           shell: Bash
-                          onDelegate: true
                           source:
                             type: Inline
                             spec:
-                              script: echo zts
+                              script: |-
+                                sleep 5
+                                echo zts
+                          executionTarget: {}
+                          environmentVariables: []
+                          outputVariables: []
                     - step:
                         name: g2
                         identifier: g2
@@ -38,11 +42,15 @@ pipeline:
                         timeout: 10m
                         spec:
                           shell: Bash
-                          onDelegate: true
                           source:
                             type: Inline
                             spec:
-                              script: echo zts
+                              script: |-
+                                sleep 5
+                                echo zts
+                          executionTarget: {}
+                          environmentVariables: []
+                          outputVariables: []
               - step:
                   type: ShellScript
                   name: ShellScript_3
