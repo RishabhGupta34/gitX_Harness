@@ -3,12 +3,12 @@ pipeline:
   identifier: zts_tc07_matrix_runtime_axis
   projectIdentifier: ZTS
   orgIdentifier: default
-  description: "matrix whose axis is a runtime expression"
+  description: matrix whose axis is a runtime expression
   tags: {}
   variables:
     - name: axisList
       type: String
-      value: "<+input>"
+      value: <+input>
   stages:
     - stage:
         name: st1
@@ -22,7 +22,15 @@ pipeline:
                   identifier: s1
                   type: ShellScript
                   timeout: 10m
-                  spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}
+                  spec:
+                    shell: Bash
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo zts
+                    executionTarget: {}
+                    environmentVariables: []
+                    outputVariables: []
                   strategy:
                     repeat:
-                      items: "<+pipeline.variables.axisList>"
+                      items: <+pipeline.variables.axisList.split(",")>
