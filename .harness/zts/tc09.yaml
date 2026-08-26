@@ -30,7 +30,7 @@ pipeline:
                             type: Inline
                             spec:
                               script: |-
-                                sleep 5
+                                sleep $((5 + RANDOM % 6))
                                 echo zts
                           executionTarget: {}
                           environmentVariables: []
