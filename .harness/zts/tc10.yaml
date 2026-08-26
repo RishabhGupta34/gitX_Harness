@@ -42,6 +42,18 @@ pipeline:
                       type: Inline
                       spec:
                         script: echo zts
+              - step:
+                  name: rb_deploy2
+                  identifier: rb_deploy2
+                  type: ShellScript
+                  timeout: 10m
+                  spec:
+                    shell: Bash
+                    onDelegate: true
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo zts
         failureStrategies:
           - onFailure:
               errors:
