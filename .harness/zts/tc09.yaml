@@ -3,7 +3,7 @@ pipeline:
   identifier: zts_tc09_stepgroup_strategy
   projectIdentifier: ZTS
   orgIdentifier: default
-  description: "strategy applied at the step-group level"
+  description: strategy applied at the step-group level
   tags: {}
   stages:
     - stage:
@@ -19,5 +19,41 @@ pipeline:
                   strategy:
                     parallelism: 3
                   steps:
-                    - step: {name: g1, identifier: g1, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
-                    - step: {name: g2, identifier: g2, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+                    - step:
+                        name: g1
+                        identifier: g1
+                        type: ShellScript
+                        timeout: 10m
+                        spec:
+                          shell: Bash
+                          onDelegate: true
+                          source:
+                            type: Inline
+                            spec:
+                              script: echo zts
+                    - step:
+                        name: g2
+                        identifier: g2
+                        type: ShellScript
+                        timeout: 10m
+                        spec:
+                          shell: Bash
+                          onDelegate: true
+                          source:
+                            type: Inline
+                            spec:
+                              script: echo zts
+              - step:
+                  type: ShellScript
+                  name: ShellScript_3
+                  identifier: ShellScript_3
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo 1
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
