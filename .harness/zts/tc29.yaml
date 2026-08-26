@@ -21,13 +21,11 @@ pipeline:
               parallel: true
           environments:
             metadata:
-              parallel: false
+              parallel: true
             values:
               - environmentRef: e2
-                deployToAll: false
-                infrastructureDefinitions:
-                  - identifier: i1
-                  - identifier: i2
+                deployToAll: true
+                infrastructureDefinitions: <+input>
               - environmentRef: env1
                 deployToAll: false
                 infrastructureDefinitions:
