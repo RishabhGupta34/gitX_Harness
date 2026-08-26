@@ -3,7 +3,7 @@ pipeline:
   identifier: zts_tc08_stage_strategy
   projectIdentifier: ZTS
   orgIdentifier: default
-  description: "strategy applied at the stage level"
+  description: strategy applied at the stage level
   tags: {}
   stages:
     - stage:
@@ -12,8 +12,41 @@ pipeline:
         type: Custom
         strategy:
           matrix:
-            shard: [one, two, three]
+            shard:
+              - one
+              - two
+              - three
         spec:
           execution:
             steps:
-              - step: {name: s1, identifier: s1, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+              - step:
+                  name: s1
+                  identifier: s1
+                  type: ShellScript
+                  timeout: 10m
+                  spec:
+                    shell: Bash
+                    onDelegate: true
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo zts
+    - stage:
+        name: st2
+        identifier: st2
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  name: s1
+                  identifier: s1
+                  type: ShellScript
+                  timeout: 10m
+                  spec:
+                    shell: Bash
+                    onDelegate: true
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo zts
