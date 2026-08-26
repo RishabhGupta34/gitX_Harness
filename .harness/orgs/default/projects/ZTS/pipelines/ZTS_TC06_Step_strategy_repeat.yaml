@@ -1,0 +1,49 @@
+pipeline:
+  projectIdentifier: ZTS
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: st1
+        identifier: st1
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  name: s1
+                  identifier: s1
+                  type: ShellScript
+                  timeout: 10m
+                  spec:
+                    shell: Bash
+                    onDelegate: true
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo zts
+                  strategy:
+                    matrix:
+                      region:
+                        - us
+                        - eu
+                      tier:
+                        - a
+                        - b
+              - step:
+                  type: ShellScript
+                  name: ShellScript_2
+                  identifier: ShellScript_2
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo 1
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+  identifier: ZTS_TC06_Step_strategy_repeat
+  description: parallelism/repeat/matrix (single/multi axis)
+  name: ZTS TC06 Step strategy repeat
