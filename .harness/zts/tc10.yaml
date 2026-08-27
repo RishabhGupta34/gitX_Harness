@@ -60,6 +60,31 @@ pipeline:
                         executionTarget: {}
                         environmentVariables: []
                         outputVariables: []
+              - step:
+                  name: deploy3
+                  identifier: deploy3
+                  type: ShellScript
+                  timeout: 10m
+                  spec:
+                    shell: Bash
+                    source:
+                      type: Inline
+                      spec:
+                        script: |-
+                          echo zts
+                          exit 1
+                    executionTarget: {}
+                    environmentVariables: []
+                    outputVariables: []
+                  strategy:
+                    matrix:
+                      a:
+                        - c
+                        - d
+                        - e
+                      b:
+                        - f
+                        - g
             rollbackSteps:
               - step:
                   name: rb_deploy
