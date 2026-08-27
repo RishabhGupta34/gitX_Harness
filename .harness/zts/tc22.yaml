@@ -37,11 +37,16 @@ pipeline:
                   timeout: 10m
                   spec:
                     shell: Bash
-                    onDelegate: true
                     source:
                       type: Inline
                       spec:
                         script: echo zts
+                    executionTarget: {}
+                    environmentVariables: []
+                    outputVariables: []
+                  when:
+                    stageStatus: Success
+                    condition: 1==1
         when:
           pipelineStatus: Success
   variables:
