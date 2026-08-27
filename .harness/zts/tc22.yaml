@@ -13,16 +13,33 @@ pipeline:
         spec:
           execution:
             steps:
-              - step: {name: s1, identifier: s1, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
               - step:
                   name: s2
                   identifier: s2
                   type: ShellScript
                   timeout: 10m
-                  spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}
+                  spec:
+                    shell: Bash
+                    onDelegate: true
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo zts
                   when:
                     stageStatus: Success
-                    condition: "<+pipeline.variables.run> == \"yes\""
+                    condition: <+pipeline.variables.run> == "yes"
+              - step:
+                  name: s1
+                  identifier: s1
+                  type: ShellScript
+                  timeout: 10m
+                  spec:
+                    shell: Bash
+                    onDelegate: true
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo zts
   variables:
     - name: run
       type: String
