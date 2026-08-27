@@ -27,6 +27,24 @@ pipeline:
                     executionTarget: {}
                     environmentVariables: []
                     outputVariables: []
+              - stepGroup:
+                  name: test
+                  identifier: test
+                  steps:
+                    - step:
+                        type: ShellScript
+                        name: ShellScript_5
+                        identifier: ShellScript_5
+                        spec:
+                          shell: Bash
+                          executionTarget: {}
+                          source:
+                            type: Inline
+                            spec:
+                              script: echo 1
+                          environmentVariables: []
+                          outputVariables: []
+                        timeout: 10m
               - parallel:
                   - step:
                       name: deploy1
@@ -44,6 +62,7 @@ pipeline:
                         executionTarget: {}
                         environmentVariables: []
                         outputVariables: []
+                    contextType: Pipeline
                   - step:
                       name: deploy2
                       identifier: deploy2
