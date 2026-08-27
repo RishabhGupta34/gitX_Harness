@@ -46,6 +46,7 @@ pipeline:
                     outputVariables: []
                   when:
                     stageStatus: All
+                    condition: 1==1
         when:
           pipelineStatus: Success
   variables:
