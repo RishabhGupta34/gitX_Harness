@@ -23,12 +23,43 @@ pipeline:
                     source:
                       type: Inline
                       spec:
-                        script: |-
-                          echo zts
-                          exit 1
+                        script: echo zts
                     executionTarget: {}
                     environmentVariables: []
                     outputVariables: []
+              - parallel:
+                  - step:
+                      name: deploy1
+                      identifier: deploy1
+                      type: ShellScript
+                      timeout: 10m
+                      spec:
+                        shell: Bash
+                        source:
+                          type: Inline
+                          spec:
+                            script: |-
+                              echo zts
+                              exit 1
+                        executionTarget: {}
+                        environmentVariables: []
+                        outputVariables: []
+                  - step:
+                      name: deploy2
+                      identifier: deploy2
+                      type: ShellScript
+                      timeout: 10m
+                      spec:
+                        shell: Bash
+                        source:
+                          type: Inline
+                          spec:
+                            script: |-
+                              echo zts
+                              exit 1
+                        executionTarget: {}
+                        environmentVariables: []
+                        outputVariables: []
             rollbackSteps:
               - step:
                   name: rb_deploy
