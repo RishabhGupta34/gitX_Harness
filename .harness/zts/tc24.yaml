@@ -13,11 +13,28 @@ pipeline:
         spec:
           execution:
             steps:
-              - step: {name: s1, identifier: s1, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
               - step:
                   name: s2
                   identifier: s2
                   type: ShellScript
                   timeout: 10m
-                  spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}
-                  when: "<+input>"
+                  spec:
+                    shell: Bash
+                    onDelegate: true
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo zts
+                  when: <+input>
+              - step:
+                  name: s1
+                  identifier: s1
+                  type: ShellScript
+                  timeout: 10m
+                  spec:
+                    shell: Bash
+                    onDelegate: true
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo zts
