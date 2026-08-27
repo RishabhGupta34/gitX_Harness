@@ -40,6 +40,8 @@ pipeline:
                       type: Inline
                       spec:
                         script: echo zts
+        when:
+          pipelineStatus: Success
   variables:
     - name: run
       type: String
