@@ -29,7 +29,7 @@ pipeline:
                     outputVariables: []
                   when:
                     stageStatus: Success
-                    condition: 1==0
+                    condition: 1==2
               - step:
                   name: s1
                   identifier: s1
