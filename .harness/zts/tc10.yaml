@@ -129,9 +129,3 @@ pipeline:
                       type: Inline
                       spec:
                         script: echo zts
-        failureStrategies:
-          - onFailure:
-              errors:
-                - AllErrors
-              action:
-                type: PipelineRollback
