@@ -24,8 +24,10 @@ pipeline:
               parallel: true
             values:
               - environmentRef: e2
-                deployToAll: true
-                infrastructureDefinitions: <+input>
+                deployToAll: false
+                infrastructureDefinitions:
+                  - identifier: i2
+                  - identifier: i1
               - environmentRef: env1
                 deployToAll: false
                 infrastructureDefinitions:
