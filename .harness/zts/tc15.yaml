@@ -18,15 +18,25 @@ pipeline:
                   identifier: s1
                   type: ShellScript
                   timeout: 10m
-                  spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}
+                  spec:
+                    shell: Bash
+                    source:
+                      type: Inline
+                      spec:
+                        script: exit 1
+                    executionTarget: {}
+                    environmentVariables: []
+                    outputVariables: []
                   failureStrategies:
                     - onFailure:
-                        errors: [AllErrors]
+                        errors:
+                          - AllErrors
                         action:
                           type: Retry
                           spec:
                             retryCount: 2
-                            retryIntervals: [1s]
+                            retryIntervals:
+                              - 1s
                             onRetryFailure:
                               action:
                                 type: Ignore
