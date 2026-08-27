@@ -20,14 +20,16 @@ pipeline:
                   timeout: 10m
                   spec:
                     shell: Bash
-                    onDelegate: true
                     source:
                       type: Inline
                       spec:
                         script: echo zts
+                    executionTarget: {}
+                    environmentVariables: []
+                    outputVariables: []
                   when:
                     stageStatus: Success
-                    condition: <+pipeline.variables.run> == "yes"
+                    condition: 1==0
               - step:
                   name: s1
                   identifier: s1
