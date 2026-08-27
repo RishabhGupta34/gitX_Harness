@@ -49,7 +49,7 @@ pipeline:
                                 outputVariables: []
                               when:
                                 stageStatus: All
-                                condition: 1==1
+                                condition: 1==0
                           - step:
                               name: i2
                               identifier: i2
