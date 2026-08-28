@@ -14,22 +14,52 @@ pipeline:
           execution:
             steps:
               - step:
-                  name: s2
-                  identifier: s2
                   type: ShellScript
-                  timeout: 10m
+                  name: ShellScript_4
+                  identifier: ShellScript_4
                   spec:
                     shell: Bash
+                    executionTarget: {}
                     source:
                       type: Inline
                       spec:
-                        script: echo zts
-                    executionTarget: {}
+                        script: echo 1
                     environmentVariables: []
                     outputVariables: []
-                  when:
-                    stageStatus: Success
-                    condition: 1==2
+                  timeout: 10m
+                contextType: Pipeline
+              - parallel:
+                  - step:
+                      name: s2
+                      identifier: s2
+                      type: ShellScript
+                      timeout: 10m
+                      spec:
+                        shell: Bash
+                        source:
+                          type: Inline
+                          spec:
+                            script: echo zts
+                        executionTarget: {}
+                        environmentVariables: []
+                        outputVariables: []
+                      when:
+                        stageStatus: Success
+                        condition: 1==2
+                  - step:
+                      type: ShellScript
+                      name: ShellScript_3
+                      identifier: ShellScript_3
+                      spec:
+                        shell: Bash
+                        executionTarget: {}
+                        source:
+                          type: Inline
+                          spec:
+                            script: echo 1
+                        environmentVariables: []
+                        outputVariables: []
+                      timeout: 10m
               - step:
                   name: s1
                   identifier: s1
