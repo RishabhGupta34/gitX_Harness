@@ -6,19 +6,42 @@ pipeline:
   description: "Two sequential stages: st1 then st2"
   tags: {}
   stages:
-    - stage:
-        name: st1
-        identifier: st1
-        type: Custom
-        spec:
-          execution:
-            steps:
-              - step: {name: a1, identifier: a1, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
-    - stage:
-        name: st2
-        identifier: st2
-        type: Custom
-        spec:
-          execution:
-            steps:
-              - step: {name: a2, identifier: a2, type: ShellScript, timeout: 10m, spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo zts}}}}
+    - parallel:
+        - stage:
+            name: st1
+            identifier: st1
+            type: Custom
+            spec:
+              execution:
+                steps:
+                  - step:
+                      name: a1
+                      identifier: a1
+                      type: ShellScript
+                      timeout: 10m
+                      spec:
+                        shell: Bash
+                        onDelegate: true
+                        source:
+                          type: Inline
+                          spec:
+                            script: echo zts
+        - stage:
+            name: st2
+            identifier: st2
+            type: Custom
+            spec:
+              execution:
+                steps:
+                  - step:
+                      name: a2
+                      identifier: a2
+                      type: ShellScript
+                      timeout: 10m
+                      spec:
+                        shell: Bash
+                        onDelegate: true
+                        source:
+                          type: Inline
+                          spec:
+                            script: echo zts
