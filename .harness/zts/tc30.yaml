@@ -1,0 +1,37 @@
+pipeline:
+  name: ZTS TC30 Matrix all-excluded
+  identifier: zts_tc30_matrix_all_excluded
+  projectIdentifier: ZTS
+  orgIdentifier: default
+  description: "2x2 matrix (a x b) on build whose exclude list removes every combination: the engine skips build gracefully (0 instances, no failure), and after must not be gated on the skipped build (stepped over)."
+  tags: {}
+  stages:
+    - stage:
+        name: st1
+        identifier: st1
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  name: build
+                  identifier: build
+                  type: ShellScript
+                  timeout: 10m
+                  spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo "matrix a=<+matrix.a> b=<+matrix.b>"}}}
+                  strategy:
+                    matrix:
+                      a: [x, y]
+                      b: [p, q]
+                      exclude:
+                        - {a: x, b: p}
+                        - {a: x, b: q}
+                        - {a: y, b: p}
+                        - {a: y, b: q}
+              - step:
+                  name: after
+                  identifier: after
+                  type: ShellScript
+                  timeout: 10m
+                  spec: {shell: Bash, onDelegate: true, source: {type: Inline, spec: {script: echo "after runs even though build was fully excluded"}}}
+        tags: {}
