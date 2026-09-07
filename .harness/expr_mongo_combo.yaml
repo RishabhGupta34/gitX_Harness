@@ -1,0 +1,76 @@
+pipeline:
+  name: Expr Mongo Combo Test
+  identifier: expr_mongo_combo
+  projectIdentifier: ExpressionUsage
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: s
+        identifier: s
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: p1
+                  identifier: p1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export a="one"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: a
+                        type: String
+                        value: a
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: p2
+                  identifier: p2
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export b="two"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: b
+                        type: String
+                        value: b
+                  timeout: 10m
+              # sink runs as a matrix (3 iterations). EACH iteration is its own node-execution
+              # with its own budget, and each resolves a COMBINATION of counted functors:
+              #   <+strategy.*> / <+matrix.*>        -> StrategyFunctor  (needs the StrategyFunctor hook)
+              #   <+...output.outputVariables.*>     -> OutcomeFunctor + ExecutionSweepingOutputFunctor (~2 each)
+              #   <+...status>                        -> NodeExecutionsCache.fetch (counted)
+              #   <+pipeline.*> / <+stage.*>          -> ExpandedJsonFunctor under V2 engine (~2 each)
+              # With ~8-12 counted calls per iteration, set the edition limit low (e.g. 5) to trip it.
+              - step:
+                  type: ShellScript
+                  name: sink
+                  identifier: sink
+                  strategy:
+                    matrix:
+                      x:
+                        - a
+                        - b
+                        - c
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo "<+strategy.iteration> <+strategy.iterations> <+matrix.x> <+execution.steps.p1.output.outputVariables.a> <+execution.steps.p2.output.outputVariables.b> <+execution.steps.p1.status> <+execution.steps.p2.status> <+pipeline.name> <+pipeline.executionId> <+stage.name>"
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}

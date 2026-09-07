@@ -1,0 +1,230 @@
+pipeline:
+  name: Expr Mongo Expansion Test
+  identifier: expr_mongo_expansion
+  projectIdentifier: ExpressionUsage
+  orgIdentifier: default
+  tags: {}
+  variables:
+    - name: v1
+      type: String
+      description: ""
+      required: false
+      value: x1
+    - name: v2
+      type: String
+      description: ""
+      required: false
+      value: x2
+    - name: v3
+      type: String
+      description: ""
+      required: false
+      value: x3
+    - name: v4
+      type: String
+      description: ""
+      required: false
+      value: x4
+    - name: v5
+      type: String
+      description: ""
+      required: false
+      value: x5
+    - name: v6
+      type: String
+      description: ""
+      required: false
+      value: x6
+    - name: v7
+      type: String
+      description: ""
+      required: false
+      value: x7
+    - name: v8
+      type: String
+      description: ""
+      required: false
+      value: x8
+    - name: v9
+      type: String
+      description: ""
+      required: false
+      value: x9
+    - name: v10
+      type: String
+      description: ""
+      required: false
+      value: x10
+    - name: v11
+      type: String
+      description: ""
+      required: false
+      value: x11
+    - name: v12
+      type: String
+      description: ""
+      required: false
+      value: x12
+    - name: v13
+      type: String
+      description: ""
+      required: false
+      value: x13
+    - name: v14
+      type: String
+      description: ""
+      required: false
+      value: x14
+    - name: v15
+      type: String
+      description: ""
+      required: false
+      value: x15
+    - name: v16
+      type: String
+      description: ""
+      required: false
+      value: x16
+    - name: v17
+      type: String
+      description: ""
+      required: false
+      value: x17
+    - name: v18
+      type: String
+      description: ""
+      required: false
+      value: x18
+    - name: v19
+      type: String
+      description: ""
+      required: false
+      value: x19
+    - name: v20
+      type: String
+      description: ""
+      required: false
+      value: x20
+    - name: v21
+      type: String
+      description: ""
+      required: false
+      value: x21
+    - name: v22
+      type: String
+      description: ""
+      required: false
+      value: x22
+    - name: v23
+      type: String
+      description: ""
+      required: false
+      value: x23
+    - name: v24
+      type: String
+      description: ""
+      required: false
+      value: x24
+    - name: v25
+      type: String
+      description: ""
+      required: false
+      value: x25
+    - name: v26
+      type: String
+      description: ""
+      required: false
+      value: x26
+    - name: v27
+      type: String
+      description: ""
+      required: false
+      value: x27
+    - name: v28
+      type: String
+      description: ""
+      required: false
+      value: x28
+    - name: v29
+      type: String
+      description: ""
+      required: false
+      value: x29
+    - name: v30
+      type: String
+      description: ""
+      required: false
+      value: x30
+    - name: v31
+      type: String
+      description: ""
+      required: false
+      value: x31
+    - name: v32
+      type: String
+      description: ""
+      required: false
+      value: x32
+    - name: v33
+      type: String
+      description: ""
+      required: false
+      value: x33
+    - name: v34
+      type: String
+      description: ""
+      required: false
+      value: x34
+    - name: v35
+      type: String
+      description: ""
+      required: false
+      value: x35
+    - name: v36
+      type: String
+      description: ""
+      required: false
+      value: x36
+    - name: v37
+      type: String
+      description: ""
+      required: false
+      value: x37
+    - name: v38
+      type: String
+      description: ""
+      required: false
+      value: x38
+    - name: v39
+      type: String
+      description: ""
+      required: false
+      value: x39
+    - name: v40
+      type: String
+      description: ""
+      required: false
+      value: x40
+  stages:
+    - stage:
+        name: s
+        identifier: s
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: sink
+                  identifier: sink
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo "<+pipeline.variables.v1> <+pipeline.variables.v2> <+pipeline.variables.v3> <+pipeline.variables.v4> <+pipeline.variables.v5> <+pipeline.variables.v6> <+pipeline.variables.v7> <+pipeline.variables.v8> <+pipeline.variables.v9> <+pipeline.variables.v10> <+pipeline.variables.v11> <+pipeline.variables.v12> <+pipeline.variables.v13> <+pipeline.variables.v14> <+pipeline.variables.v15> <+pipeline.variables.v16> <+pipeline.variables.v17> <+pipeline.variables.v18> <+pipeline.variables.v19> <+pipeline.variables.v20> <+pipeline.variables.v21> <+pipeline.variables.v22> <+pipeline.variables.v23> <+pipeline.variables.v24> <+pipeline.variables.v25> <+pipeline.variables.v26> <+pipeline.variables.v27> <+pipeline.variables.v28> <+pipeline.variables.v29> <+pipeline.variables.v30> <+pipeline.variables.v31> <+pipeline.variables.v32> <+pipeline.variables.v33> <+pipeline.variables.v34> <+pipeline.variables.v35> <+pipeline.variables.v36> <+pipeline.variables.v37> <+pipeline.variables.v38> <+pipeline.variables.v39> <+pipeline.variables.v40>"
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
