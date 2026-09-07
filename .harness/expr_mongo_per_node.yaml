@@ -1,0 +1,1273 @@
+pipeline:
+  name: Expr Mongo Per Node Test
+  identifier: expr_mongo_per_node
+  projectIdentifier: ExpressionUsage
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: stage_a
+        identifier: stage_a
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: g_a_1
+                  identifier: g_a_1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_a_1"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_a_2
+                  identifier: g_a_2
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_a_2"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_a_3
+                  identifier: g_a_3
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_a_3"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_a_4
+                  identifier: g_a_4
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_a_4"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_a_5
+                  identifier: g_a_5
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_a_5"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_a_6
+                  identifier: g_a_6
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_a_6"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_a_7
+                  identifier: g_a_7
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_a_7"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_a_8
+                  identifier: g_a_8
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_a_8"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_a_9
+                  identifier: g_a_9
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_a_9"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_a_10
+                  identifier: g_a_10
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_a_10"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_a_11
+                  identifier: g_a_11
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_a_11"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_a_12
+                  identifier: g_a_12
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_a_12"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_a_13
+                  identifier: g_a_13
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_a_13"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_a_14
+                  identifier: g_a_14
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_a_14"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_a_15
+                  identifier: g_a_15
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_a_15"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: sink_a
+                  identifier: sink_a
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo done
+                    environmentVariables:
+                      - name: e_1
+                        type: String
+                        value: <+execution.steps.g_a_1.output.outputVariables.v>
+                      - name: e_2
+                        type: String
+                        value: <+execution.steps.g_a_2.output.outputVariables.v>
+                      - name: e_3
+                        type: String
+                        value: <+execution.steps.g_a_3.output.outputVariables.v>
+                      - name: e_4
+                        type: String
+                        value: <+execution.steps.g_a_4.output.outputVariables.v>
+                      - name: e_5
+                        type: String
+                        value: <+execution.steps.g_a_5.output.outputVariables.v>
+                      - name: e_6
+                        type: String
+                        value: <+execution.steps.g_a_6.output.outputVariables.v>
+                      - name: e_7
+                        type: String
+                        value: <+execution.steps.g_a_7.output.outputVariables.v>
+                      - name: e_8
+                        type: String
+                        value: <+execution.steps.g_a_8.output.outputVariables.v>
+                      - name: e_9
+                        type: String
+                        value: <+execution.steps.g_a_9.output.outputVariables.v>
+                      - name: e_10
+                        type: String
+                        value: <+execution.steps.g_a_10.output.outputVariables.v>
+                      - name: e_11
+                        type: String
+                        value: <+execution.steps.g_a_11.output.outputVariables.v>
+                      - name: e_12
+                        type: String
+                        value: <+execution.steps.g_a_12.output.outputVariables.v>
+                      - name: e_13
+                        type: String
+                        value: <+execution.steps.g_a_13.output.outputVariables.v>
+                      - name: e_14
+                        type: String
+                        value: <+execution.steps.g_a_14.output.outputVariables.v>
+                      - name: e_15
+                        type: String
+                        value: <+execution.steps.g_a_15.output.outputVariables.v>
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
+    - stage:
+        name: stage_b
+        identifier: stage_b
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: g_b_1
+                  identifier: g_b_1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_b_1"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_b_2
+                  identifier: g_b_2
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_b_2"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_b_3
+                  identifier: g_b_3
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_b_3"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_b_4
+                  identifier: g_b_4
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_b_4"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_b_5
+                  identifier: g_b_5
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_b_5"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_b_6
+                  identifier: g_b_6
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_b_6"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_b_7
+                  identifier: g_b_7
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_b_7"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_b_8
+                  identifier: g_b_8
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_b_8"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_b_9
+                  identifier: g_b_9
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_b_9"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_b_10
+                  identifier: g_b_10
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_b_10"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_b_11
+                  identifier: g_b_11
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_b_11"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_b_12
+                  identifier: g_b_12
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_b_12"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_b_13
+                  identifier: g_b_13
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_b_13"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_b_14
+                  identifier: g_b_14
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_b_14"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_b_15
+                  identifier: g_b_15
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_b_15"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: sink_b
+                  identifier: sink_b
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo done
+                    environmentVariables:
+                      - name: e_1
+                        type: String
+                        value: <+execution.steps.g_b_1.output.outputVariables.v>
+                      - name: e_2
+                        type: String
+                        value: <+execution.steps.g_b_2.output.outputVariables.v>
+                      - name: e_3
+                        type: String
+                        value: <+execution.steps.g_b_3.output.outputVariables.v>
+                      - name: e_4
+                        type: String
+                        value: <+execution.steps.g_b_4.output.outputVariables.v>
+                      - name: e_5
+                        type: String
+                        value: <+execution.steps.g_b_5.output.outputVariables.v>
+                      - name: e_6
+                        type: String
+                        value: <+execution.steps.g_b_6.output.outputVariables.v>
+                      - name: e_7
+                        type: String
+                        value: <+execution.steps.g_b_7.output.outputVariables.v>
+                      - name: e_8
+                        type: String
+                        value: <+execution.steps.g_b_8.output.outputVariables.v>
+                      - name: e_9
+                        type: String
+                        value: <+execution.steps.g_b_9.output.outputVariables.v>
+                      - name: e_10
+                        type: String
+                        value: <+execution.steps.g_b_10.output.outputVariables.v>
+                      - name: e_11
+                        type: String
+                        value: <+execution.steps.g_b_11.output.outputVariables.v>
+                      - name: e_12
+                        type: String
+                        value: <+execution.steps.g_b_12.output.outputVariables.v>
+                      - name: e_13
+                        type: String
+                        value: <+execution.steps.g_b_13.output.outputVariables.v>
+                      - name: e_14
+                        type: String
+                        value: <+execution.steps.g_b_14.output.outputVariables.v>
+                      - name: e_15
+                        type: String
+                        value: <+execution.steps.g_b_15.output.outputVariables.v>
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
+    - stage:
+        name: stage_c
+        identifier: stage_c
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: g_c_1
+                  identifier: g_c_1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_1"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_2
+                  identifier: g_c_2
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_2"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_3
+                  identifier: g_c_3
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_3"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_4
+                  identifier: g_c_4
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_4"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_5
+                  identifier: g_c_5
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_5"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_6
+                  identifier: g_c_6
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_6"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_7
+                  identifier: g_c_7
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_7"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_8
+                  identifier: g_c_8
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_8"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_9
+                  identifier: g_c_9
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_9"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_10
+                  identifier: g_c_10
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_10"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_11
+                  identifier: g_c_11
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_11"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_12
+                  identifier: g_c_12
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_12"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_13
+                  identifier: g_c_13
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_13"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_14
+                  identifier: g_c_14
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_14"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_15
+                  identifier: g_c_15
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_15"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_16
+                  identifier: g_c_16
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_16"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_17
+                  identifier: g_c_17
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_17"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_18
+                  identifier: g_c_18
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_18"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_19
+                  identifier: g_c_19
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_19"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_20
+                  identifier: g_c_20
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_20"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_21
+                  identifier: g_c_21
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_21"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_22
+                  identifier: g_c_22
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_22"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_23
+                  identifier: g_c_23
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_23"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_24
+                  identifier: g_c_24
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_24"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_25
+                  identifier: g_c_25
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_25"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_26
+                  identifier: g_c_26
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_26"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_27
+                  identifier: g_c_27
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_27"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_28
+                  identifier: g_c_28
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_28"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_29
+                  identifier: g_c_29
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_29"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: g_c_30
+                  identifier: g_c_30
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v="val_c_30"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v
+                        type: String
+                        value: v
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: sink_c
+                  identifier: sink_c
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo done
+                    environmentVariables:
+                      - name: e_1
+                        type: String
+                        value: <+execution.steps.g_c_1.output.outputVariables.v>
+                      - name: e_2
+                        type: String
+                        value: <+execution.steps.g_c_2.output.outputVariables.v>
+                      - name: e_3
+                        type: String
+                        value: <+execution.steps.g_c_3.output.outputVariables.v>
+                      - name: e_4
+                        type: String
+                        value: <+execution.steps.g_c_4.output.outputVariables.v>
+                      - name: e_5
+                        type: String
+                        value: <+execution.steps.g_c_5.output.outputVariables.v>
+                      - name: e_6
+                        type: String
+                        value: <+execution.steps.g_c_6.output.outputVariables.v>
+                      - name: e_7
+                        type: String
+                        value: <+execution.steps.g_c_7.output.outputVariables.v>
+                      - name: e_8
+                        type: String
+                        value: <+execution.steps.g_c_8.output.outputVariables.v>
+                      - name: e_9
+                        type: String
+                        value: <+execution.steps.g_c_9.output.outputVariables.v>
+                      - name: e_10
+                        type: String
+                        value: <+execution.steps.g_c_10.output.outputVariables.v>
+                      - name: e_11
+                        type: String
+                        value: <+execution.steps.g_c_11.output.outputVariables.v>
+                      - name: e_12
+                        type: String
+                        value: <+execution.steps.g_c_12.output.outputVariables.v>
+                      - name: e_13
+                        type: String
+                        value: <+execution.steps.g_c_13.output.outputVariables.v>
+                      - name: e_14
+                        type: String
+                        value: <+execution.steps.g_c_14.output.outputVariables.v>
+                      - name: e_15
+                        type: String
+                        value: <+execution.steps.g_c_15.output.outputVariables.v>
+                      - name: e_16
+                        type: String
+                        value: <+execution.steps.g_c_16.output.outputVariables.v>
+                      - name: e_17
+                        type: String
+                        value: <+execution.steps.g_c_17.output.outputVariables.v>
+                      - name: e_18
+                        type: String
+                        value: <+execution.steps.g_c_18.output.outputVariables.v>
+                      - name: e_19
+                        type: String
+                        value: <+execution.steps.g_c_19.output.outputVariables.v>
+                      - name: e_20
+                        type: String
+                        value: <+execution.steps.g_c_20.output.outputVariables.v>
+                      - name: e_21
+                        type: String
+                        value: <+execution.steps.g_c_21.output.outputVariables.v>
+                      - name: e_22
+                        type: String
+                        value: <+execution.steps.g_c_22.output.outputVariables.v>
+                      - name: e_23
+                        type: String
+                        value: <+execution.steps.g_c_23.output.outputVariables.v>
+                      - name: e_24
+                        type: String
+                        value: <+execution.steps.g_c_24.output.outputVariables.v>
+                      - name: e_25
+                        type: String
+                        value: <+execution.steps.g_c_25.output.outputVariables.v>
+                      - name: e_26
+                        type: String
+                        value: <+execution.steps.g_c_26.output.outputVariables.v>
+                      - name: e_27
+                        type: String
+                        value: <+execution.steps.g_c_27.output.outputVariables.v>
+                      - name: e_28
+                        type: String
+                        value: <+execution.steps.g_c_28.output.outputVariables.v>
+                      - name: e_29
+                        type: String
+                        value: <+execution.steps.g_c_29.output.outputVariables.v>
+                      - name: e_30
+                        type: String
+                        value: <+execution.steps.g_c_30.output.outputVariables.v>
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
