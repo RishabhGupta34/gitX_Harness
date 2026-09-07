@@ -1,0 +1,86 @@
+pipeline:
+  name: Expr Mongo Functors Test
+  identifier: expr_mongo_functors
+  projectIdentifier: ExpressionUsage
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: s
+        identifier: s
+        type: Custom
+        spec:
+          execution:
+            steps:
+              # Gate first so <+approval.*> resolves on the sink node (exercises ApprovalFunctor).
+              # Approve it in the UI; then the sink runs.
+              - step:
+                  type: HarnessApproval
+                  name: approval1
+                  identifier: approval1
+                  timeout: 1d
+                  spec:
+                    approvalMessage: Approve to continue the mongo-budget functor test
+                    includePipelineExecutionHistory: true
+                    isAutoRejectEnabled: false
+                    approvers:
+                      userGroups:
+                        - _project_all_users
+                      minimumCount: 1
+                      disallowPipelineExecutor: false
+                    approverInputs: []
+              - step:
+                  type: ShellScript
+                  name: p1
+                  identifier: p1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v1="one"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v1
+                        type: String
+                        value: v1
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: p2
+                  identifier: p2
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: export v2="two"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v2
+                        type: String
+                        value: v2
+                  timeout: 10m
+              # ONE node whose budget accumulates across the just-instrumented functors:
+              #   <+pipeline.*>          -> PipelineExecutionFunctor  (summary + selectedStages metadata ~2 calls)
+              #   <+approval.*>          -> ApprovalFunctor           (~1-2 calls)
+              #   <+execution.steps.pN.output.outputVariables.vN> -> NodeExecutionMap outcome+sweeping (~2 each)
+              #   <+execution.steps.pN.status>                    -> node-execution cache (~1 each)
+              # ~8-10 counted calls total -> set MAX_EXPRESSION_MONGO_CALLS_<EDITION>=5 to trip it.
+              - step:
+                  type: ShellScript
+                  name: sink
+                  identifier: sink
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo "<+pipeline.name> <+pipeline.executionId> <+pipeline.executionUrl> <+pipeline.selectedStages> <+approval.approvalActivities> <+execution.steps.p1.output.outputVariables.v1> <+execution.steps.p2.output.outputVariables.v2> <+execution.steps.p1.status> <+execution.steps.p2.status>"
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
