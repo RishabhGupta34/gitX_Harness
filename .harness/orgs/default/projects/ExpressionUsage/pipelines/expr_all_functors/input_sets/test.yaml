@@ -1,0 +1,20 @@
+inputSet:
+  name: test
+  identifier: test
+  orgIdentifier: default
+  projectIdentifier: ExpressionUsage
+  pipeline:
+    identifier: expr_all_functors
+    stages:
+      - stage:
+          identifier: s
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: approval1
+                    type: HarnessApproval
+                    spec:
+                      approvers:
+                        minimumCount: 1
