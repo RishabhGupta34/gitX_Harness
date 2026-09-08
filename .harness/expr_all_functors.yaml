@@ -4,15 +4,6 @@ pipeline:
   projectIdentifier: ExpressionUsage
   orgIdentifier: default
   tags: {}
-  # Minimal pipeline that exercises EVERY functor instrumented with the per-node MongoDB budget:
-  #   PipelineExecutionFunctor  -> <+pipeline.*>
-  #   ApprovalFunctor           -> <+approval.*>
-  #   InputSetFunctor           -> <+inputSet.*>
-  #   NodeExecutionMap (+cache) -> <+execution.steps.<id>.*>
-  # One stage, three steps: an approval (so <+approval.*> resolves), a producer (so
-  # <+execution.steps.*.output.*> resolves), and a single "sink" node that references all of them.
-  # All the budget accumulates on the sink node - set MAX_EXPRESSION_MONGO_CALLS_<EDITION> low
-  # (e.g. 5) + FF PIPE_HARD_IMPOSE_EXPRESSION_MONGO_LIMIT to trip enforcement on that node.
   stages:
     - stage:
         name: s
@@ -21,7 +12,6 @@ pipeline:
         spec:
           execution:
             steps:
-              # Gate first so the approval node exists before the sink resolves <+approval.*>.
               - step:
                   type: HarnessApproval
                   name: approval1
@@ -34,10 +24,9 @@ pipeline:
                     approvers:
                       userGroups:
                         - _project_all_users
-                      minimumCount: 1
+                      minimumCount: <+input>
                       disallowPipelineExecutor: false
                     approverInputs: []
-              # Producer of output variables read back via <+execution.steps.p1.output.*>.
               - step:
                   type: ShellScript
                   name: p1
@@ -60,7 +49,6 @@ pipeline:
                         type: String
                         value: v2
                   timeout: 10m
-              # Single sink node - all four functors resolve here and accumulate on ONE budget.
               - step:
                   type: ShellScript
                   name: sink
