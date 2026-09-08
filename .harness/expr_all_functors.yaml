@@ -1,0 +1,97 @@
+pipeline:
+  name: Expr All Changed Functors
+  identifier: expr_all_functors
+  projectIdentifier: ExpressionUsage
+  orgIdentifier: default
+  tags: {}
+  # Minimal pipeline that exercises EVERY functor instrumented with the per-node MongoDB budget:
+  #   PipelineExecutionFunctor  -> <+pipeline.*>
+  #   ApprovalFunctor           -> <+approval.*>
+  #   InputSetFunctor           -> <+inputSet.*>
+  #   NodeExecutionMap (+cache) -> <+execution.steps.<id>.*>
+  # One stage, three steps: an approval (so <+approval.*> resolves), a producer (so
+  # <+execution.steps.*.output.*> resolves), and a single "sink" node that references all of them.
+  # All the budget accumulates on the sink node - set MAX_EXPRESSION_MONGO_CALLS_<EDITION> low
+  # (e.g. 5) + FF PIPE_HARD_IMPOSE_EXPRESSION_MONGO_LIMIT to trip enforcement on that node.
+  stages:
+    - stage:
+        name: s
+        identifier: s
+        type: Custom
+        spec:
+          execution:
+            steps:
+              # Gate first so the approval node exists before the sink resolves <+approval.*>.
+              - step:
+                  type: HarnessApproval
+                  name: approval1
+                  identifier: approval1
+                  timeout: 1d
+                  spec:
+                    approvalMessage: Approve to continue the all-functors budget test
+                    includePipelineExecutionHistory: true
+                    isAutoRejectEnabled: false
+                    approvers:
+                      userGroups:
+                        - _project_all_users
+                      minimumCount: 1
+                      disallowPipelineExecutor: false
+                    approverInputs: []
+              # Producer of output variables read back via <+execution.steps.p1.output.*>.
+              - step:
+                  type: ShellScript
+                  name: p1
+                  identifier: p1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: |
+                          export v1="one"
+                          export v2="two"
+                    environmentVariables: []
+                    outputVariables:
+                      - name: v1
+                        type: String
+                        value: v1
+                      - name: v2
+                        type: String
+                        value: v2
+                  timeout: 10m
+              # Single sink node - all four functors resolve here and accumulate on ONE budget.
+              - step:
+                  type: ShellScript
+                  name: sink
+                  identifier: sink
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: |
+                          # PipelineExecutionFunctor: <+pipeline.*>
+                          echo "pipeline.name=<+pipeline.name>"
+                          echo "pipeline.executionId=<+pipeline.executionId>"
+                          echo "pipeline.executionUrl=<+pipeline.executionUrl>"
+                          echo "pipeline.sequenceId=<+pipeline.sequenceId>"
+                          echo "pipeline.startTs=<+pipeline.startTs>"
+                          echo "pipeline.triggerType=<+pipeline.triggerType>"
+                          echo "pipeline.triggeredBy=<+pipeline.triggeredBy.name>"
+                          echo "pipeline.selectedStages=<+pipeline.selectedStages>"
+                          # ApprovalFunctor: <+approval.*>
+                          echo "approval.activities=<+approval.approvalActivities>"
+                          # InputSetFunctor: <+inputSet.*>
+                          echo "inputSet.details=<+inputSet.details>"
+                          # NodeExecutionMap (+ node-execution cache): <+execution.steps.<id>.*>
+                          echo "p1.v1=<+execution.steps.p1.output.outputVariables.v1>"
+                          echo "p1.v2=<+execution.steps.p1.output.outputVariables.v2>"
+                          echo "p1.status=<+execution.steps.p1.status>"
+                          echo "p1.startTs=<+execution.steps.p1.startTs>"
+                          echo "approval1.status=<+execution.steps.approval1.status>"
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
