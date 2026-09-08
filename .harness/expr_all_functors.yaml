@@ -136,6 +136,24 @@ pipeline:
                           echo "p1.status=<+execution.steps.p1.status>"
                           echo "p1.startTs=<+execution.steps.p1.startTs>"
                           echo "approval1.status=<+execution.steps.approval1.status>"
+                          echo "pipeline.name=<+pipeline.name>"
+                          echo "pipeline.executionId=<+pipeline.executionId>"
+                          echo "pipeline.executionUrl=<+pipeline.executionUrl>"
+                          echo "pipeline.sequenceId=<+pipeline.sequenceId>"
+                          echo "pipeline.startTs=<+pipeline.startTs>"
+                          echo "pipeline.triggerType=<+pipeline.triggerType>"
+                          echo "pipeline.triggeredBy=<+pipeline.triggeredBy.name>"
+                          echo "pipeline.selectedStages=<+pipeline.selectedStages>"
+                          # ApprovalFunctor: <+approval.*>
+                          echo "approval.activities=<+approval.approvalActivities>"
+                          # InputSetFunctor: <+inputSet.*>
+                          echo "inputSet.details=<+inputSet.details>"
+                          # NodeExecutionMap (+ node-execution cache): <+execution.steps.<id>.*>
+                          echo "p1.v1=<+execution.steps.p1.output.outputVariables.v1>"
+                          echo "p1.v2=<+execution.steps.p1.output.outputVariables.v2>"
+                          echo "p1.status=<+execution.steps.p1.status>"
+                          echo "p1.startTs=<+execution.steps.p1.startTs>"
+                          echo "approval1.status=<+execution.steps.approval1.status>"
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
