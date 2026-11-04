@@ -6,7 +6,7 @@ pipeline:
     v1: ""
   stages:
     - stage:
-        name: test
+        name: test1
         identifier: test
         description: ""
         type: Deployment
@@ -19,8 +19,7 @@ pipeline:
                   name: HarnessApproval_1
                   identifier: HarnessApproval_1
                   spec:
-                    approvalMessage: Please review the following information and approve
-                      the pipeline progression
+                    approvalMessage: Please review the following information and approve the pipeline progression
                     includePipelineExecutionHistory: true
                     isAutoRejectEnabled: false
                     approvers:
